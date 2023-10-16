@@ -12,10 +12,10 @@ require("dotenv").config({
 });
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `${process.env.GATSBY_SITE_NAME}`,
+    description: `Full Basket Property is The Fastest-Growing Company in The Online Real Estate Space, With The Vision to Become a One-Stop-Shop for All Kinds of Real Estate Need`,
     author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `${process.env.GATSBY_SITE_URL}`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -35,12 +35,12 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#F8A386`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/fbp-icon.png`, // This path is relative to the root of the site.
       },
     },
     {

@@ -10,7 +10,7 @@ function Footer(props) {
             <p className="menu">
                 {props.siteConfig?.Footer_Menu_Links &&
                     props.siteConfig?.Footer_Menu_Links.map(Links => (
-                        <a href={Links?.Link?.Menu_Link}>{Links?.Link?.Menu_Name}{ReactHtmlParser(Links?.Separator)}</a>
+                        <a href={Links?.Link?.Menu_Link}>{Links?.Link?.Name}{ReactHtmlParser(Links?.Separator)}</a>
                     ))                
                 }
             </p>

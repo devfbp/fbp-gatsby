@@ -2,47 +2,80 @@ import * as React from "react"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Image from 'react-bootstrap/Image';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 //import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Header(props) {
+  //console.log("log:",props.siteConfig.Top_Menu)
+  //const [theArray, setTheArray] = useState([]);
+  const defaultMenu = "Root";
+  const childMenuList = [];
+  const dummyArray = [defaultMenu];
+  if(props.siteConfig.Top_Menu) {
+    props.siteConfig.Top_Menu.map((menu, index) => {
+      var obj = {'name':menu?.Menu?.Name,'link':menu?.Menu?.Menu_Link};
+      var m = menu?.Menu?.Parent_Menu?.Name;      
+      if(!dummyArray.includes(m)) {
+        dummyArray.push(m);
+        childMenuList[m] = [];
+        //console.log("log:",menulist)
+      }
+      if(childMenuList[m]) {
+        //dummyArray.push(menu?.Menu?.Name);
+        childMenuList[m].push(obj);
+      }            
+    });
+    dummyArray.splice(0, 1)
+  }
+  console.log("log:",dummyArray)
+
   return (
-    <Navbar expand="lg" className="navbar" variant="dark" fixed="top">
-      <Container>
-        <Navbar.Brand href="#home">{props.siteName}</Navbar.Brand>
-        {props.menuLists &&
-        <>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            {
-              props.menuLists.map((menulist, index) => (                
-                <>                
-                {menulist?.Menu_Link &&
-                  <>
-                  <Nav.Link class="navbar-a" href={menulist?.Menu_Link}>{menulist?.Menu_Name}</Nav.Link>
-                  </>
-                }
+    <div className="">
+      <Navbar bg="light" expand="lg" className="navbar" data-bs-theme="light" fixed="top">
+        <Container fluid>
+          <Navbar.Brand href="/" className="brand-logo"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            {props.siteConfig.Top_Menu &&
+              <>
+                <Nav className="me-auto">
+                  {
+                    props.siteConfig.Top_Menu.map((menulist, index) => (
+                      <>
+                        {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
+                          <>                           
+                            <NavDropdown title={menulist?.Menu?.Name} id="navbarScrollingDropdown">
+                              {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
+                                <NavDropdown.Item href="#action3">{childmenu.name}</NavDropdown.Item>
+                              ))}
+                            </NavDropdown>
+                          </>
+                        }
+                        {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
+                            <Nav.Link class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</Nav.Link>                         
+                        }
+                      </>
+                    ))
+                  }
+                </Nav>
+              </>
+            }
+            {props.siteConfig.Contacts && props.siteConfig.Contacts.map((contact, index) => (
+                <>
+                  <div className="d-flex">
+                    <a to={contact?.Link} className="navbar-icon" target="_blank"><i className={contact?.Icon}></i></a>
+                  </div>
                 </>
               ))
             }
-            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">                
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown> */}
-          </Nav>
-        </Navbar.Collapse>
-        </>
-        }
-        
-      </Container>
-    </Navbar>
+
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+    </div>
   );
 }
 

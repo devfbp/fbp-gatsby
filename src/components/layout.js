@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
             Link {
               Menu_Link
               Menu_Link_Type
-              Menu_Name
+              Name
               Menu_Type
             }
             Separator
@@ -42,12 +42,33 @@ const Layout = ({ children }) => {
             Name
           }
           Url
+          Contacts {
+            Link
+            Name
+            Value
+            Icon
+          }
+          Top_Menu {
+            Name
+            Menu {
+              Menu_Link
+              Menu_Link_Type
+              Menu_Type
+              Name
+              Parent_Menu {
+                Name
+                Menu_Link
+                Menu_Link_Type
+                Menu_Type
+              }
+            }
+          }
         }
         allStrapiMenu {
           nodes {
             Menu_Link
             Menu_Link_Type
-            Menu_Name
+            Name
             Menu_Type
           }
         }
@@ -71,7 +92,7 @@ const Layout = ({ children }) => {
   }, [siteConfig, menuData  ]);
   return (
     <>
-      <Header siteName={siteName} menuLists={menuLists}/>
+      <Header siteConfig={siteConfig} menuLists={menuLists}/>
       <div>
         <main>{children}</main>      
       </div>

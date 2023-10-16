@@ -28,7 +28,7 @@ const IndexPage = () => {
           Name
           Menu_Link {
             Menu_Link
-            Menu_Name
+            Name
             Menu_Type
             Menu_Link_Type
           }
@@ -46,7 +46,7 @@ const IndexPage = () => {
           <>
           {componetnt && componetnt.Name==="Test" &&
             <>
-              <BannerImag data={componetnt} />
+              {/* <BannerImag data={componetnt} /> */}
             </>
           }
           {componetnt && componetnt.Name=="Latest Properties" &&
