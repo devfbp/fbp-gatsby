@@ -1,56 +1,16 @@
 @import "../scss/font.css";
 @import "../scss/variables.scss";
+
 .navbar {
-    //background: $white;
-    font-size: 18px;
-    color: $blue;
-
-    /*@media only screen and (max-width: $mobile) {
-        background: $black2;
-        font-size: 12px;
-        margin-top: 0;
+    .navbar-a {
+        display: block;
+        padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+        font-size: var(--bs-nav-link-font-size);
+        font-weight: var(--bs-nav-link-font-weight);
+        color: var(--bs-nav-link-color);
+        text-decoration: none;
+        background: 0 0;
+        border: 0;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
     }
-
-    .navbar-brand {
-        font-size: 40px;
-        font-size: 18px;
-    }
-
-    .nav-link,
-    .dropdown-item {
-        color: $blue;
-        font-weight: 200;
-        font-size: 14px;
-        text-transform: uppercase;
-
-    }
-    .nav-link:hover, .dropdown-item:hover {
-        color: $color7 !important;
-        font-weight: 500 !important;
-    }
-    .navbar-toggler {
-        color: $blue ;
-    }
-    .nav-link.show {
-        color: $color7 !important;
-    }
-    .navbar-icon {
-        background: $color7;
-        color: #ffffff;
-        font-size: 25px;
-        width: 38px;
-        height: 38px;
-        //border-radius: 50%;
-        text-align: center;
-        //line-height: 42px;
-        margin: 10px 2px;
-        vertical-align: middle;
-
-        .fa-envelope {
-            font-size: 23px !important;
-        }
-    }*/
-}
-.color-line {
-    height: 100px;
 }

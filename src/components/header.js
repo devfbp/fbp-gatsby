@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import './header.scss';
 
 function Header(props) {
   const defaultMenu = "Root";
@@ -35,13 +36,13 @@ function Header(props) {
           {props.siteConfig.Top_Menu.map((menulist, index) => (
               <>
                 {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
-                    <Nav.Link class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</Nav.Link>                         
+                    <a className="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</a>                         
                 }
                 {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
                   <>                           
                     <NavDropdown title={menulist?.Menu?.Name}>
                       {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
-                        <NavDropdown.Item href={childmenu.link}>{childmenu.name}</NavDropdown.Item>
+                        <a className="navbar-a" href={childmenu.link}>{childmenu.name}</a>
                       ))}
                     </NavDropdown>
                   </>
