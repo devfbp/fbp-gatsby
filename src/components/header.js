@@ -4,8 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-//import NavDropdown from 'react-bootstrap/NavDropdown';
+import './header.scss';
 
 function Header(props) {
   //console.log("log:",props.siteConfig.Top_Menu)
@@ -48,7 +47,7 @@ function Header(props) {
                           <>                           
                             <NavDropdown title={menulist?.Menu?.Name} id="navbarScrollingDropdown">
                               {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
-                                <NavDropdown.Item href="#action3">{childmenu.name}</NavDropdown.Item>
+                                <NavDropdown.Item href={childmenu.link}>{childmenu.name}</NavDropdown.Item>
                               ))}
                             </NavDropdown>
                           </>
@@ -65,7 +64,7 @@ function Header(props) {
             {props.siteConfig.Contacts && props.siteConfig.Contacts.map((contact, index) => (
                 <>
                   <div className="d-flex">
-                    <a to={contact?.Link} className="navbar-icon" target="_blank"><i className={contact?.Icon}></i></a>
+                    <a href={contact?.Link} className="navbar-icon"><i className={contact?.Icon}></i></a>
                   </div>
                 </>
               ))

@@ -1,8 +1,8 @@
 import * as React from "react"
 import ReactHtmlParser from 'react-html-parser';
 import 'font-awesome/css/font-awesome.min.css';
-function Footer(props) {
-    
+import './footer.scss';
+function Footer(props) {    
   return (
     <footer className="footer">
         <div className="footer-left col-md-4 col-sm-6">
