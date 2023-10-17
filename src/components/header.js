@@ -29,52 +29,45 @@ function Header(props) {
     dummyArray.splice(0, 1)
   }
   console.log("log:",dummyArray)*/
-
+  console.log("log:",props.menuLists)
   return (
-    <div className="">
-      <Navbar bg="light" expand="lg" className="navbar" variant="light" fixed="top">
-        <Container fluid>
-          <Navbar.Brand href="/" className="brand-logo"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
+    <Navbar expand="lg" className="navbar" variant="dark" fixed="top">
+    <Container fluid>
+      <Navbar.Brand href="/"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
+      {props.menuLists &&
+        <>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="navbarScroll">
-            {props.siteConfig.Top_Menu &&
-              <>
-                <Nav className="me-auto">
-                  {
-                    props.siteConfig.Top_Menu.map((menulist, index) => (
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              {
+                props.menuLists.map((menulist, index) => (
+                  <>
+                    {menulist?.Menu_Link &&
                       <>
-                        {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
-                            <Nav.Link class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</Nav.Link>                         
-                        }
-                        {/* {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
-                          <>                           
-                            <NavDropdown title={menulist?.Menu?.Name}>
-                              {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
-                                <NavDropdown.Item href={childmenu.link}>{childmenu.name}</NavDropdown.Item>
-                              ))}
-                            </NavDropdown>
-                          </>
-                        }                         */}
+                        <Nav.Link class="navbar-a" href={menulist?.Menu_Link}>{menulist?.Name}</Nav.Link>
                       </>
-                    ))
-                  }
-                </Nav>
-              </>
-            }
-            {props.siteConfig.Contacts && props.siteConfig.Contacts.map((contact, index) => (
-                <>
-                  <div className="d-flex">
-                    <a href={contact?.Link} className="navbar-icon"><i className={contact?.Icon}></i></a>
-                  </div>
-                </>
-              ))
-            }
-
+                    }
+                  </>
+                ))
+              }
+              {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">                
+          Another action
+        </NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">
+          Separated link
+        </NavDropdown.Item>
+      </NavDropdown> */}
+            </Nav>
           </Navbar.Collapse>
-        </Container>
-      </Navbar>
+        </>
+      }
 
-    </div>
+    </Container>
+  </Navbar>
   );
 }
 
