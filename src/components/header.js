@@ -12,7 +12,7 @@ function Header(props) {
   const defaultMenu = "Root";
   const childMenuList = [];
   const dummyArray = [defaultMenu];
-  if(props.siteConfig.Top_Menu) {
+  /*if(props.siteConfig.Top_Menu) {
     props.siteConfig.Top_Menu.map((menu, index) => {
       var obj = {'name':menu?.Menu?.Name,'link':menu?.Menu?.Menu_Link};
       var m = menu?.Menu?.Parent_Menu?.Name;      
@@ -28,7 +28,7 @@ function Header(props) {
     });
     dummyArray.splice(0, 1)
   }
-  console.log("log:",dummyArray)
+  console.log("log:",dummyArray)*/
 
   return (
     <div className="">
@@ -46,7 +46,7 @@ function Header(props) {
                         {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
                             <Nav.Link class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</Nav.Link>                         
                         }
-                        {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
+                        {/* {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
                           <>                           
                             <NavDropdown title={menulist?.Menu?.Name}>
                               {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
@@ -54,7 +54,7 @@ function Header(props) {
                               ))}
                             </NavDropdown>
                           </>
-                        }                        
+                        }                         */}
                       </>
                     ))
                   }
