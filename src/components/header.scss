@@ -3,14 +3,43 @@
 
 .navbar {
     .navbar-a {
+        //text-transform: uppercase;
         display: block;
-        padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-        font-size: var(--bs-nav-link-font-size);
-        font-weight: var(--bs-nav-link-font-weight);
-        color: var(--bs-nav-link-color);
+        padding: 10px 0px 0px 15px;
+        //padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+        //font-size: var(--bs-nav-link-font-size);
+        //font-weight: var(--bs-nav-link-font-weight);
+        //color: var(--bs-nav-link-color);
+        color: $blue;
+        font-weight: 200;
+        font-size: 16px;
+        //text-transform: uppercase;
         text-decoration: none;
         background: 0 0;
         border: 0;
         transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    }
+    .navbar-a-dropdown {
+        padding: 3px 0px 0px 10px;
+    }
+    .navbar-a:hover {
+        color: $color7 !important;
+        font-weight: 500 !important;
+    }
+    .navbar-icon {
+        background: $color7;
+        color: #ffffff;
+        font-size: 25px;
+        width: 38px;
+        height: 38px;
+        //border-radius: 50%;
+        text-align: center;
+        //line-height: 42px;
+        margin: 10px 2px;
+        vertical-align: middle;
+
+        .fa-envelope {
+            font-size: 23px !important;
+        }
     }
 }

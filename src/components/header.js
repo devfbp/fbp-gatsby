@@ -4,57 +4,77 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import ColorLine from '../images/colorline.jpg'
 import './header.scss';
 
 function Header(props) {
+  //console.log("log:",props.siteConfig.Top_Menu)
+  //const [theArray, setTheArray] = useState([]);
   const defaultMenu = "Root";
   const childMenuList = [];
   const dummyArray = [defaultMenu];
-  if(props.siteConfig.Top_Menu) {
+  if (props.siteConfig.Top_Menu) {
     props.siteConfig.Top_Menu.map((menu, index) => {
-      var obj = {'name':menu?.Menu?.Name,'link':menu?.Menu?.Menu_Link};
-      var m = menu?.Menu?.Parent_Menu?.Name;      
-      if(!dummyArray.includes(m)) {
+      var obj = { 'name': menu?.Menu?.Name, 'link': menu?.Menu?.Menu_Link };
+      var m = menu?.Menu?.Parent_Menu?.Name;
+      if (!dummyArray.includes(m)) {
         dummyArray.push(m);
         childMenuList[m] = [];
         //console.log("log:",menulist)
       }
-      if(childMenuList[m]) {
+      if (childMenuList[m]) {
         //dummyArray.push(menu?.Menu?.Name);
         childMenuList[m].push(obj);
-      }            
+      }
     });
     dummyArray.splice(0, 1)
   }
-  console.log("log:",dummyArray)
+  console.log("log:", dummyArray)
+  //console.log("log:",props.menuLists)
   return (
     <>
-      <Navbar bg="light" data-bs-theme="light">
-        <Container>
-          <Navbar.Brand href="/"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
-          <Nav className="me-auto">
-          {props.siteConfig.Top_Menu.map((menulist, index) => (
+      <Navbar bg="light" expand="lg" className="navbar" variant="light" fixed="top">
+        <Container fluid>
+          <Navbar.Brand href="/" className="brand-logo"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="navbarScroll">
+            {props.siteConfig.Top_Menu &&
               <>
-                {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
-                    <a className="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</a>                         
-                }
-                {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
-                  <>                           
-                    <NavDropdown title={menulist?.Menu?.Name}>
-                      {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
-                        <a className="navbar-a" href={childmenu.link}>{childmenu.name}</a>
-                      ))}
-                    </NavDropdown>
-                  </>
-                }
+                <Nav className="me-auto">
+                  {
+                    props.siteConfig.Top_Menu.map((menulist, index) => (
+                      <>
+                        {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
+                            <a class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</a>                         
+                        }
+                        {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
+                          <>                           
+                            <NavDropdown title={menulist?.Menu?.Name} class="navbar-a navbar-a-dropdown">
+                              {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
+                                <a class="navbar-a" href={childmenu.link}>{childmenu.name}</a>
+                              ))}
+                            </NavDropdown>
+                          </>
+                        }
+                      </>
+                    ))
+                  }
+                </Nav>
               </>
-            ))
-          }
-          </Nav>
+            }
+            {props.siteConfig.Contacts && props.siteConfig.Contacts.map((contact, index) => (
+                <>
+                  <div className="d-flex">
+                    <a href={contact?.Link} className="navbar-icon"><i className={contact?.Icon}></i></a>
+                  </div>
+                </>
+              ))
+            }
+
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </>
   );
 }
-
 export default Header;
