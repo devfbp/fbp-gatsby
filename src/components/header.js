@@ -12,66 +12,77 @@ function Header(props) {
   const defaultMenu = "Root";
   const childMenuList = [];
   const dummyArray = [defaultMenu];
-  if (props.siteConfig.Top_Menu) {
+  if(props.siteConfig.Top_Menu) {
     props.siteConfig.Top_Menu.map((menu, index) => {
-      var obj = { 'name': menu?.Menu?.Name, 'link': menu?.Menu?.Menu_Link };
-      var m = menu?.Menu?.Parent_Menu?.Name;
-      if (!dummyArray.includes(m)) {
+      var obj = {'name':menu?.Menu?.Name,'link':menu?.Menu?.Menu_Link};
+      var m = menu?.Menu?.Parent_Menu?.Name;      
+      if(!dummyArray.includes(m)) {
         dummyArray.push(m);
         childMenuList[m] = [];
         //console.log("log:",menulist)
       }
-      if (childMenuList[m]) {
+      if(childMenuList[m]) {
         //dummyArray.push(menu?.Menu?.Name);
         childMenuList[m].push(obj);
-      }
+      }            
     });
     dummyArray.splice(0, 1)
   }
-  console.log("log:", dummyArray)
+  console.log("log:",dummyArray)
   //console.log("log:",props.menuLists)
   return (
     <Navbar expand="lg" className="navbar" variant="dark" fixed="top">
-      <Container fluid>
-        <Navbar.Brand href="/"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
-        {props.siteConfig.Top_Menu &&
-          <>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                {
-                  props.siteConfig.Top_Menu.map((menulist, index) => (
-                    <>
-                      {menulist?.Menu?.Parent_Menu?.Name === defaultMenu && !dummyArray.includes(menulist?.Menu?.Name) &&
-                        <Nav.Link class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</Nav.Link>
-                      }
-                      {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
-                        <>
-                          <NavDropdown title={menulist?.Menu?.Name}>
-                            {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
-                              <NavDropdown.Item href={childmenu.link}>{childmenu.name}</NavDropdown.Item>
-                            ))}
-                          </NavDropdown>
-                        </>
-                      }
-                    </>
-                  ))
-                }
-              </Nav>
-            </Navbar.Collapse>
-          </>
-        }
-        {props.siteConfig.Contacts && props.siteConfig.Contacts.map((contact, index) => (
-          <>
-            <div className="d-flex">
-              <a href={contact?.Link} className="navbar-icon"><i className={contact?.Icon}></i></a>
-            </div>
-          </>
-        ))
-        }
+    <Container fluid>
+      <Navbar.Brand href="/"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
+      {props.menuLists &&
+        <>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              {
+                    props.siteConfig.Top_Menu.map((menulist, index) => (
+                      <>
+                        {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
+                            <Nav.Link class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</Nav.Link>                         
+                        }
+                        {/* {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
+                          <>                           
+                            <NavDropdown title={menulist?.Menu?.Name}>
+                              {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
+                                <NavDropdown.Item href={childmenu.link}>{childmenu.name}</NavDropdown.Item>
+                              ))}
+                            </NavDropdown>
+                          </>
+                        }                         */}
+                      </>
+                    ))
+                  }
+              {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">                
+          Another action
+        </NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">
+          Separated link
+        </NavDropdown.Item>
+      </NavDropdown> */}
+            </Nav>
+          </Navbar.Collapse>
+        </>
+      }
+      {props.siteConfig.Contacts && props.siteConfig.Contacts.map((contact, index) => (
+                <>
+                  <div className="d-flex">
+                    <a href={contact?.Link} className="navbar-icon"><i className={contact?.Icon}></i></a>
+                  </div>
+                </>
+              ))
+            }
 
-      </Container>
-    </Navbar>
+    </Container>
+  </Navbar>
   );
 }
 
