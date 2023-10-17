@@ -32,10 +32,10 @@ function Header(props) {
 
   return (
     <div className="">
-      <Navbar bg="light" expand="lg" className="navbar" data-bs-theme="light" fixed="top">
+      <Navbar bg="light" expand="lg" className="navbar" variant="light" fixed="top">
         <Container fluid>
           <Navbar.Brand href="/" className="brand-logo"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="navbarScroll">
             {props.siteConfig.Top_Menu &&
               <>
@@ -43,18 +43,18 @@ function Header(props) {
                   {
                     props.siteConfig.Top_Menu.map((menulist, index) => (
                       <>
+                        {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
+                            <Nav.Link class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</Nav.Link>                         
+                        }
                         {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
                           <>                           
-                            <NavDropdown title={menulist?.Menu?.Name} id="navbarScrollingDropdown">
+                            <NavDropdown title={menulist?.Menu?.Name}>
                               {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
                                 <NavDropdown.Item href={childmenu.link}>{childmenu.name}</NavDropdown.Item>
                               ))}
                             </NavDropdown>
                           </>
-                        }
-                        {menulist?.Menu?.Parent_Menu?.Name===defaultMenu &&  !dummyArray.includes(menulist?.Menu?.Name) &&
-                            <Nav.Link class="navbar-a" href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</Nav.Link>                         
-                        }
+                        }                        
                       </>
                     ))
                   }
