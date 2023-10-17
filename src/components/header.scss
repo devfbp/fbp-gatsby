@@ -19,20 +19,21 @@
     .nav-link,
     .dropdown-item {
         color: $blue;
-        font-weight: 300;
+        font-weight: 200;
         font-size: 14px;
         text-transform: uppercase;
 
     }
-
+    .nav-link:hover, .dropdown-item:hover {
+        color: $color7 !important;
+        font-weight: 500 !important;
+    }
     .navbar-toggler {
         color: $blue ;
     }
-
-    .dropdown-item:active {
-        background: $color7;
+    .nav-link.show {
+        color: $color7 !important;
     }
-
     .navbar-icon {
         background: $color7;
         color: #ffffff;
