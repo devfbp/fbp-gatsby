@@ -35,7 +35,7 @@ function Header(props) {
     <>
       <Navbar bg="light" expand="lg" className="navbar" variant="light" fixed="top">
         <Container fluid>
-          <Navbar.Brand href="/" className="brand-logo"><Image src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
+          <Navbar.Brand href="/" className="brand-logo"><Image alt="logo" src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="navbarScroll">
             {props.siteConfig.Top_Menu &&
@@ -49,7 +49,7 @@ function Header(props) {
                         }
                         {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
                           <>                           
-                            <NavDropdown title={menulist?.Menu?.Name} class="navbar-a navbar-a-dropdown">
+                            <NavDropdown title={menulist?.Menu?.Name} class="navbar-a">
                               {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (
                                 <a class="navbar-a" href={childmenu.link}>{childmenu.name}</a>
                               ))}
@@ -73,7 +73,11 @@ function Header(props) {
 
           </Navbar.Collapse>
         </Container>
+        
       </Navbar>
+        <div className="colorline">
+          <Image src={ColorLine} alt="Colorline"/>
+        </div>
     </>
   );
 }

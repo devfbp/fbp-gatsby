@@ -1,0 +1,30 @@
+@import "../../scss/font.css";
+@import "../../scss/variables.scss";
+.single-banner {    
+    .carousel-caption {
+        text-align: left;
+        top: 2%;
+        left: 2%;
+        width: 50%;
+        right: 0;
+        h1, h2, h3 {
+            color: $blue !important;
+            font-size: 52px;
+            font-weight: 900;
+            span {
+                color: $color7;
+                font-weight: 400;
+            }
+        }
+        p {
+            color: $color7;
+        }
+        .btn {
+            margin-top: 10%;
+            //color: $color7;
+            background-color: $blue;
+            border-color: $blue;
+            font-weight: 600;
+        }
+    }
+}

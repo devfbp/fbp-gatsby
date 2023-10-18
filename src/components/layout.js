@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ColorLine from '../images/colorline.jpg';
 
 const Layout = ({ children }) => {
   const qryData = useStaticQuery(graphql`
@@ -75,28 +76,28 @@ const Layout = ({ children }) => {
       }
     `);
   const [siteName, setSiteName] = useState("");
-  const [menuLists, setMenuLists] = useState([]);  
-  
+  const [menuLists, setMenuLists] = useState([]);
+
   var siteConfig = qryData?.strapiSiteConfiguration;
   var menuData = qryData?.allStrapiMenu?.nodes;
   //console.log("log:",menuData)
   useEffect(() => {
-    if(siteConfig) {    
-      if(siteConfig?.Name) {
+    if (siteConfig) {
+      if (siteConfig?.Name) {
         setSiteName(siteConfig?.Name);
       }
     }
-    if(menuData) {
+    if (menuData) {
       setMenuLists(menuData);
     }
-  }, [siteConfig, menuData  ]);
+  }, [siteConfig, menuData]);
   return (
     <>
-      <Header siteConfig={siteConfig} menuLists={menuLists}/>
+      <Header siteConfig={siteConfig} menuLists={menuLists} />
       <div>
-        <main>{children}</main>      
+        <main>{children}</main>
       </div>
-      <Footer siteConfig={siteConfig}/>
+      <Footer siteConfig={siteConfig} />
     </>
   )
 }

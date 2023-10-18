@@ -1,7 +1,7 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import BannerImag from '../components/BannerImage/BannerImage';
+import HomePageBanner from '../components/HomePageBanner/HomePageBanner';
 import LatestProperty from '../components/LatestProperty/LatestProperty';
 import { useStaticQuery, graphql } from "gatsby";
 import '../scss/common.scss';
@@ -9,19 +9,14 @@ import '../scss/common.scss';
 const IndexPage = () => {
   const qryData = useStaticQuery(graphql`
       query HomeArticleData {
-        strapiArticle(Name: {eq: "Test"}) {
+        strapiArticle(Alias: {eq: "home"}) {
           id
           Alias
-          Article_Component {
-            ... on StrapiComponentArticleBannerImage {
-              id
-              Name
-              Images {
-                file {
-                  childrenImageSharp {
-                    gatsbyImageData(width: 1300, height: 520, formats: WEBP)
-                  }
-                }
+          Banner_Image {
+            id
+            file {
+              childImageSharp {
+                gatsbyImageData(height: 420, width: 1300)
               }
             }
           }
@@ -34,29 +29,24 @@ const IndexPage = () => {
           }
           Description
           Banner_Text
+          Banner_Image_Mobile {
+            file {
+              childImageSharp {
+                gatsbyImageData(height: 550, width: 378)
+              }
+            }
+          }
         }
       }
     `);
-  //console.log("log:",qryData?.glstrapi?.article?.data?.attributes?.Custom_Componetnt);
-  const Article_Component = qryData?.strapiArticle?.Article_Component;
-  
+  const HomeArticleData = qryData?.strapiArticle;
   return (
     <Layout>
-      {Article_Component && Article_Component.map((componetnt, index) =>(
-          <>
-          {componetnt && componetnt.Name==="Test" &&
-            <>
-              {/* <BannerImag data={componetnt} /> */}
-            </>
-          }
-          {componetnt && componetnt.Name=="Latest Properties" &&
-            <>
-            <LatestProperty data={componetnt} />
-            </>
-          }
-          </>
-        ))
+      <>
+      {HomeArticleData?.Banner_Image &&
+        <HomePageBanner dataV={HomeArticleData} />
       }
+      </>
     </Layout>
   )
 }
