@@ -11,13 +11,16 @@ function SingleCarouselImage(props) {
   const image_desktop = imgUrl(props?.dataV?.Banner_Image);
   const image_mobile = imgUrl(props?.dataV?.Banner_Image_Mobile);
   const banner_text = props?.dataV?.Banner_Text;
-  const [bannerImage, setBannerImage] = useState(image_desktop);
-  console.log("log:",isMobile);
+  const [bannerImage, setBannerImage] = useState('');
+  //console.log("log:",isMobile);
   useEffect(() => {
     if(isMobile) {
       setBannerImage(image_mobile)
     }
-  },[image_mobile]);
+    if(isBrowser) {
+      setBannerImage(image_desktop)
+    }
+  },[image_mobile, image_desktop]);
   return (
     <Carousel
       autoPlay={false}
@@ -26,7 +29,7 @@ function SingleCarouselImage(props) {
       pause={false}
       className="single-banner"
     >
-      {image_desktop &&
+      {bannerImage &&
         <Carousel.Item>
             <Image className="d-block w-100 banner-image" src={bannerImage} alt={"BannerImage"} />
           {banner_text &&
