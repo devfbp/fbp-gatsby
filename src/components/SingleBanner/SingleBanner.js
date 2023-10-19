@@ -18,12 +18,7 @@ function SingleCarouselImage(props) {
     >
       {image &&
         <Carousel.Item>
-          <Image className="d-block w-100" src={image} alt={"BannerImage"} />
-          {props.text &&
-            <Carousel.Caption>
-              {ReactHtmlParser(props.text)}
-            </Carousel.Caption>
-          }
+          <></>
         </Carousel.Item>
       }
     </Carousel>

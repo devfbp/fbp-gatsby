@@ -13,12 +13,18 @@ function SingleCarouselImage(props) {
   const banner_text = props?.dataV?.Banner_Text;
   const [bannerImage, setBannerImage] = useState('');
   //console.log("log:",isMobile);
+  var imgWidth="";
+  var imgHeight="";
   useEffect(() => {
     if(isMobile) {
-      setBannerImage(image_mobile)
+      setBannerImage(image_mobile);
+      imgWidth = "378px";
+      imgHeight = "420px";
     }
     if(isBrowser) {
-      setBannerImage(image_desktop)
+      setBannerImage(image_desktop);
+      imgWidth = "1300px";
+      imgHeight = "420px";
     }
   },[image_mobile, image_desktop]);
   return (
@@ -31,7 +37,7 @@ function SingleCarouselImage(props) {
     >
       {bannerImage &&
         <Carousel.Item>
-            <Image className="d-block w-100 banner-image" src={bannerImage} alt={"BannerImage"} />
+            <Image className="d-block w-100 banner-image" src={bannerImage} alt={"BannerImage"} width={imgWidth} height={imgHeight}/>
           {banner_text &&
             <Carousel.Caption>
               {ReactHtmlParser(banner_text)}

@@ -35,7 +35,7 @@ function Header(props) {
     <>
       <Navbar bg="light" expand="lg" className="navbar" variant="light" fixed="top">
         <Container fluid>
-          <Navbar.Brand href="/" className="brand-logo"><Image alt="logo" src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
+          <Navbar.Brand href="/" className="brand-logo"><Image width={"auto"} height={"auto"} alt="logo" src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="navbarScroll">
             {props.siteConfig.Top_Menu &&
@@ -76,7 +76,7 @@ function Header(props) {
         
       </Navbar>
         <div className="colorline">
-          <Image src={ColorLine} alt="Colorline"/>
+          <Image src={ColorLine} alt="Colorline" width={"100%"} height={"14px"}/>
         </div>
     </>
   );

@@ -18,13 +18,6 @@ function CarouselImage (props) {
     >
       {images && images.map((item, index) =>(
           <Carousel.Item>
-            <Image className="d-block w-100" src={item?.file.childrenImageSharp[0].gatsbyImageData.images.fallback.src} alt={"BannerImage-"+index} />
-            {/* 
-            https://devadmin.fullbasketproperty.com/"+item?.attributes?.url
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption> */}
         </Carousel.Item>
       ))
       }
