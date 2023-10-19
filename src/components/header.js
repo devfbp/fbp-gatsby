@@ -29,7 +29,7 @@ function Header(props) {
     });
     dummyArray.splice(0, 1)
   }
-  console.log("log:", dummyArray)
+  //console.log("log:", dummyArray)
   //console.log("log:",props.menuLists)
   return (
     <>

@@ -7,7 +7,7 @@ import { StaticImage } from "gatsby-plugin-image"
 function CarouselImage (props) {
   
   const images = props?.data?.Images;
-  console.log("log:",images)
+  //console.log("log:",images)
   return (
     <Carousel
       autoPlay={true}

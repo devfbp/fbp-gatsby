@@ -4,7 +4,7 @@ import Noimage from '../images/no_image.png'
 
 const imgUrl = (value) => {
     if(value) {
-        console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
+        //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
         return value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src;
     }
     return Noimage;

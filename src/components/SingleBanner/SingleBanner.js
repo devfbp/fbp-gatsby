@@ -6,7 +6,7 @@ import ReactHtmlParser from 'react-html-parser';
 import './SingleBanner.scss'
 
 function SingleCarouselImage(props) {
-  console.log("log:", props.image);
+  //console.log("log:", props.image);
   const image = imgUrl(props.image);
   return (
     <Carousel

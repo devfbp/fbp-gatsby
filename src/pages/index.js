@@ -32,7 +32,7 @@ const IndexPage = () => {
           Banner_Image_Mobile {
             file {
               childImageSharp {
-                gatsbyImageData(height: 550, width: 378)
+                gatsbyImageData(height: 420, width: 378)
               }
             }
           }

@@ -13,8 +13,8 @@
         width: 50%;
         right: 0;
         @media only screen and (max-width: $mobile) {
-            width: 100%;
-            text-align: center;
+            width: 55%;
+            text-align: left;
         }
         h1, h2, h3 {
             color: $blue !important;
@@ -25,7 +25,7 @@
                 font-weight: 400;
             }
             @media only screen and (max-width: $mobile) {
-                font-size: 54px;
+                font-size: 42px;
             }
         }
         p {
@@ -41,6 +41,10 @@
             background-color: $blue;
             border-color: $blue;
             font-weight: 600;
+            @media only screen and (max-width: $mobile) {
+                margin: -100% 0 0 115%;
+                width: 50%;
+            }
         }
     }
 }
