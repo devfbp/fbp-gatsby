@@ -2,9 +2,13 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import HomePageBanner from '../components/HomePageBanner/HomePageBanner';
+import PropertyType from "../components/PropertyType/PropertyType";
+import CallService from "../components/CallService/CallService"
 import LatestProperty from '../components/LatestProperty/LatestProperty';
 import { useStaticQuery, graphql } from "gatsby";
 import '../scss/common.scss';
+import Container from "react-bootstrap/esm/Container";
+
 
 const IndexPage = () => {
   const qryData = useStaticQuery(graphql`
@@ -36,16 +40,40 @@ const IndexPage = () => {
               }
             }
           }
+          Module_Enabled {
+            Enabled
+            Name
+            Collection_Name
+          }
         }
       }
     `);
   const HomeArticleData = qryData?.strapiArticle;
+  const Module_Enabled = HomeArticleData?.Module_Enabled;
   return (
     <Layout>
       <>
-      {HomeArticleData?.Banner_Image &&
-        <HomePageBanner dataV={HomeArticleData} />
-      }
+        {HomeArticleData?.Banner_Image &&
+          <HomePageBanner dataV={HomeArticleData} />
+        }
+        <Container>
+          {Module_Enabled && Module_Enabled.map((module, index) => (
+            <>
+              {module?.Enabled == true &&
+                <>
+                  {module && module?.Collection_Name === "Property_Type" &&
+                    <PropertyType title={module?.Name} />
+                  }
+                </>
+              }
+            </>
+          ))
+          }
+          <a href="#" className="a-tag">
+            <CallService />
+          </a>
+        </Container>
+
       </>
     </Layout>
   )

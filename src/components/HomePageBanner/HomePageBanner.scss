@@ -38,13 +38,11 @@
         }
         .btn {
             margin-top: 10%;
-            //color: $color7;
-            background-color: $blue;
-            border-color: $blue;
-            font-weight: 600;
+            //color: $color7;            
             @media only screen and (max-width: $mobile) {
-                margin: -100% 0 0 115%;
-                width: 50%;
+                margin-top: 1%;
+                //margin: -100% 0 0 115%;
+                //width: 50%;
             }
         }
     }

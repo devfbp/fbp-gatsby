@@ -1,0 +1,50 @@
+@import "../../scss/font.css";
+@import "../../scss/variables.scss";
+
+.property-type {
+    .pt-title {
+        padding: 8% 0 0 0;
+        text-align: center;
+        color: $blue;
+    }
+    .pt-separator {
+        hr {
+            width: 50%;
+            border: 1px solid $color7;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 1px;
+          }
+    }
+
+    .pt-card {
+        border-radius: 0;
+        --bs-card-spacer-y: 0.3rem !important;
+
+        img {
+            border-radius: 0;
+        }
+        @media only screen and (max-width: $mobile) {
+            padding-bottom: 10px;
+        }
+
+        .pt-card-body {
+            background-color: $color7;
+            max-height: 100px;
+            color: $white;
+            text-align: center;
+            
+            .pt-card-title {
+                font-family: $font_special1 !important;
+                font-size: 22px;
+                font-weight: 400;
+                margin: 0 !important;
+            }
+        }
+    }
+
+}

@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import { useState, useEffect } from "react";
 import Carousel from 'react-bootstrap/Carousel';
@@ -11,22 +12,20 @@ function SingleCarouselImage(props) {
   const image_desktop = imgUrl(props?.dataV?.Banner_Image);
   const image_mobile = imgUrl(props?.dataV?.Banner_Image_Mobile);
   const banner_text = props?.dataV?.Banner_Text;
-  const [bannerImage, setBannerImage] = useState('');
+  //const [bannerImage, setBannerImage] = useState('');
   //console.log("log:",isMobile);
+  var bannerImage = "";
   var imgWidth="";
   var imgHeight="";
-  useEffect(() => {
-    if(isMobile) {
-      setBannerImage(image_mobile);
-      imgWidth = "378px";
-      imgHeight = "420px";
-    }
-    if(isBrowser) {
-      setBannerImage(image_desktop);
-      imgWidth = "1300px";
-      imgHeight = "420px";
-    }
-  },[image_mobile, image_desktop]);
+  if(isMobile) {
+    bannerImage = image_mobile;
+    imgWidth = "378px";
+    imgHeight = "420px";
+  } else if(isBrowser) {
+    bannerImage = image_desktop;
+    imgWidth = "1300px";
+    imgHeight = "420px";
+  }
   return (
     <Carousel
       autoPlay={false}

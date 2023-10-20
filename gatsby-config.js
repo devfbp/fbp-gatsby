@@ -47,8 +47,8 @@ module.exports = {
       resolve: 'gatsby-source-strapi-graphql',
       options: {
         apiURL: process.env.GATSBY_STRAPI_SITE_URL,
-        collectionTypes: ['article','menu'],
-        singleTypes: ['site-configuration'],
+        collectionTypes: ['article','menu','property-type'],
+        singleTypes: ['site-configuration','contact-module'],
         // Extract images from markdown / richtext fields.
         inlineImages: {
           typesToParse: {
