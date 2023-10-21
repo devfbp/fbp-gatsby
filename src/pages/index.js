@@ -4,6 +4,7 @@ import Seo from "../components/seo"
 import HomePageBanner from '../components/HomePageBanner/HomePageBanner';
 import PropertyType from "../components/PropertyType/PropertyType";
 import CallService from "../components/CallService/CallService"
+import Area from "../components/Area/Area"
 import LatestProperty from '../components/LatestProperty/LatestProperty';
 import { useStaticQuery, graphql } from "gatsby";
 import '../scss/common.scss';
@@ -64,14 +65,19 @@ const IndexPage = () => {
                   {module && module?.Collection_Name === "Property_Type" &&
                     <PropertyType title={module?.Name} />
                   }
+                  {module && module?.Collection_Name === "Contact" &&
+                    <CallService />
+                  }
+                  {module && module?.Collection_Name === "Area" &&
+                    <Area title={module?.Name} />
+                  }
                 </>
               }
+              
             </>
           ))
           }
-          <a href="#" className="a-tag">
-            <CallService />
-          </a>
+          
         </Container>
 
       </>

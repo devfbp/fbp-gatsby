@@ -1,18 +1,36 @@
 @import "font.css";
 @import "variables.scss";
-*,body {
+
+*,
+body {
     font-family: $primary_font;
     text-size-adjust: none;
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
 }
+
 .btn-primary {
     background-color: $blue !important;
     border-color: $blue !important;
     font-weight: 400 !important;
     border-radius: 0 !important;
 }
+
 .a-tag {
     text-decoration: none;
+}
+
+.separator {
+    hr {
+        width: 50%;
+        border: 1px solid $color7;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    }
 }

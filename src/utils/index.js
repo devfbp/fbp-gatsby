@@ -26,5 +26,11 @@ const rupeeFormat = (numbers) => {
     return "₹ "+convertedNF.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+const titleDesign = (title) => {
+    if(title) {
+        return "hai";
+    }
+    return title;
+}
 
 export {numberFormat,rupeeFormat,imgUrl}

@@ -17,6 +17,7 @@ function SingleCarouselImage(props) {
           id
           Name
           Message
+          Phone_Number
           Image {
             file {
               childImageSharp {
@@ -30,23 +31,25 @@ function SingleCarouselImage(props) {
   const CallServiceData = qryData?.strapiContactModule;
   return (
     <>
-    <Container>
-      <Row className="call-service">
-        {CallServiceData &&
-          <>
-            <Col lg={1} sm={2}>
-              <Image src={imgUrl(CallServiceData?.Image)} alt={CallServiceData.Name} />
-            </Col>
-            <Col lg={9} className="cs-text">
-              <p>{ReactHtmlParser(CallServiceData?.Message)}</p>
-            </Col>
-            <Col lg={2} sm={2}>
-            <a href="#" className="btn btn-primary">CALL ME</a>
-            </Col>
-          </>
-        }
-      </Row>
-      </Container>
+      <a href={"tel:"+CallServiceData?.Phone_Number} className="a-tag">
+        <Container>
+          <Row className="call-service">
+            {CallServiceData &&
+              <>
+                <Col lg={1} md={2} sm={12} xs={12}>
+                  <Image src={imgUrl(CallServiceData?.Image)} alt={CallServiceData.Name} />
+                </Col>
+                <Col lg={8} md={7} sm={12} xs={12} className="cs-text">
+                  <p>{ReactHtmlParser(CallServiceData?.Message)}</p>
+                </Col>
+                <Col lg={3} md={3} sm={12} xs={12}>
+                  <a href="#" className="btn btn-primary">CALL ME</a>
+                </Col>
+              </>
+            }
+          </Row>
+        </Container>
+      </a>
     </>
   )
 }
