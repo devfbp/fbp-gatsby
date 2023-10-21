@@ -1,11 +1,8 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby";
-import Image from 'react-bootstrap/Image';
 import { imgUrl } from "../../utils";
-import ReactHtmlParser from 'react-html-parser';
 import './PropertyType.scss'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
@@ -37,7 +34,7 @@ function SingleCarouselImage(props) {
         <Row>
           {PropertyTypeData && PropertyTypeData.map((ptype, index) => (
             <>
-              <Col lg={3} md={6} sm={6} xs={6}>
+              <Col lg={3} md={6} sm={6} xs={12}>
                 <Card className="pt-card">
                   <Card.Img variant="top" src={imgUrl(ptype?.Image)} />
                   <Card.Body className="pt-card-body">

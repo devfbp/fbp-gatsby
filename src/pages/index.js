@@ -71,13 +71,14 @@ const IndexPage = () => {
                   {module && module?.Collection_Name === "Area" &&
                     <Area title={module?.Name} />
                   }
+                  {module && module?.Collection_Name === "Latest_Property" &&
+                  <LatestProperty title={module?.Name} />
+                  }
                 </>
-              }
-              
+              }              
             </>
           ))
-          }
-          
+          }            
         </Container>
 
       </>
