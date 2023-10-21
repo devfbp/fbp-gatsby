@@ -59,10 +59,9 @@ function LatestProperty(props) {
                   <Card.Text>
                     <Row>
                       <Col lg={12}><h3>2 & 3 BHK Yuva Houses</h3></Col>                      
-                      <Col lg={12}>{rupeeFormat(FirstPropertyData.Price)}</Col>
-                      <Col lg={12}>{FirstPropertyData.Door_No + ", " + FirstPropertyData.Street_Name+", "+FirstPropertyData.Area.Name}</Col>
-                      <Col lg={12}>{}</Col>
-                      <Col lg={12}>{FirstPropertyData.Builder.Name}</Col>
+                      <Col lg={12} className="lp-price">{rupeeFormat(FirstPropertyData.Price)}</Col>
+                      <Col lg={12} className="lp-small">{FirstPropertyData.Door_No + ", " + FirstPropertyData.Street_Name}</Col>
+                      <Col lg={12} className="lp-small">{FirstPropertyData.Area.Name}</Col>
                     </Row>
                   </Card.Text>
                 </Card.ImgOverlay>
@@ -81,7 +80,7 @@ function LatestProperty(props) {
                             <Card.Text>
                               <Row>
                                 <Col lg={12}><h3>2 & 3 BHK Yuva Houses</h3></Col>
-                                <Col lg={12}>{rupeeFormat(prop.Price)}</Col>
+                                <Col lg={12} className="lp-price">{rupeeFormat(prop.Price)}</Col>
                                 <Col lg={12} className="lp-small">{prop.Door_No + "," + prop.Street_Name}</Col>                                
                                 <Col lg={12} className="lp-small">{prop.Area.Name}</Col>
                               </Row>
