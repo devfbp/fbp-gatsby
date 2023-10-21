@@ -65,7 +65,7 @@ const IndexPage = () => {
                   {module && module?.Collection_Name === "Property_Type" &&
                     <PropertyType title={module?.Name} />
                   }
-                  {module && module?.Collection_Name === "Contact" &&
+                  {module && module?.Collection_Name === "Contact_Module" &&
                     <CallService />
                   }
                   {module && module?.Collection_Name === "Area" &&
