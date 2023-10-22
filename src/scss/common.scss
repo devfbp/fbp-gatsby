@@ -2,7 +2,7 @@
 @import "variables.scss";
 
 *,
-body {
+html, body {
     font-family: $primary_font;
     text-size-adjust: none;
     -webkit-text-size-adjust: none;
@@ -33,4 +33,7 @@ body {
         border-style: inset;
         border-width: 1px;
     }
+}
+.react-multiple-carousel__arrow {
+    background: $color7;
 }

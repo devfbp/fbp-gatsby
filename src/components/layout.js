@@ -64,6 +64,9 @@ const Layout = ({ children }) => {
               }
             }
           }
+          Popular_Search {
+            Search_List
+          }
         }
         allStrapiMenu {
           nodes {

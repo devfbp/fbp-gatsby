@@ -4,11 +4,12 @@
 @import "../../scss/variables.scss";
 
 .builder-div {
-    .bu -title {
-        padding: 8% 0 0 0;
-        text-align: center;
+    .bu-title {
+        padding: 10% 0 0 0;
+        text-align: left;
         color: $blue;
         font-size: 38px;
+        text-align: center;
         font-weight: 400;
     }
     p{
