@@ -6,6 +6,7 @@ import PropertyType from "../components/PropertyType/PropertyType";
 import CallService from "../components/CallService/CallService"
 import Area from "../components/Area/Area"
 import LatestProperty from '../components/LatestProperty/LatestProperty';
+import Builder from '../components/Builder/Builder';
 import { useStaticQuery, graphql } from "gatsby";
 import '../scss/common.scss';
 import Container from "react-bootstrap/esm/Container";
@@ -72,13 +73,16 @@ const IndexPage = () => {
                     <Area title={module?.Name} />
                   }
                   {module && module?.Collection_Name === "Latest_Property" &&
-                  <LatestProperty title={module?.Name} />
+                    <LatestProperty title={module?.Name} />
+                  }
+                  {module && module?.Collection_Name === "Builder" &&
+                    <Builder title={module?.Name} />
                   }
                 </>
-              }              
+              }
             </>
           ))
-          }            
+          }
         </Container>
 
       </>

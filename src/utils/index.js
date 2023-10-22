@@ -10,6 +10,14 @@ const imgUrl = (value) => {
     return Noimage;
 }
 
+const imgPublicUrl = (value) => {
+    if(value) {
+        //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
+        return value?.file?.publicURL;
+    }
+    return Noimage;
+}
+
 const numberFormat = (numbers) => {
     let convertedNF = 0;
     if(numbers) {
@@ -33,4 +41,4 @@ const titleDesign = (title) => {
     return title;
 }
 
-export {numberFormat,rupeeFormat,imgUrl}
+export {numberFormat,rupeeFormat,imgUrl,imgPublicUrl}

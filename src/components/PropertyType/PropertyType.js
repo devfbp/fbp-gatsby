@@ -34,7 +34,7 @@ function SingleCarouselImage(props) {
         <Row>
           {PropertyTypeData && PropertyTypeData.map((ptype, index) => (
             <>
-              <Col lg={3} md={6} sm={6} xs={12}>
+              <Col lg={3} md={6} sm={6} xs={6}>
                 <Card className="pt-card">
                   <Card.Img variant="top" src={imgUrl(ptype?.Image)} />
                   <Card.Body className="pt-card-body">

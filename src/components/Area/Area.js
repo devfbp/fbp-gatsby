@@ -39,7 +39,7 @@ function SingleCarouselImage(props) {
         <Row>
           {AreaData && AreaData.map((area, index) => (
             <>
-              <Col lg={6} md={6} sm={6} xs={12}>
+              <Col lg={6} md={6} sm={6} xs={6}>
                 <Card className="ar-card">                  
                   <Card.Body className="ar-card-body">
                     <Card.Title className="ar-card-title"><i className="fa fa-map-marker fa-lg ar-mapicon"></i>{area?.Name}</Card.Title>
