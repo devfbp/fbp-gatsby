@@ -11,7 +11,6 @@ import { useState, useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ColorLine from '../images/colorline.jpg';
 
 const Layout = ({ children }) => {
   const qryData = useStaticQuery(graphql`
@@ -78,7 +77,7 @@ const Layout = ({ children }) => {
         }
       }
     `);
-  const [siteName, setSiteName] = useState("");
+  //const [siteName, setSiteName] = useState("");
   const [menuLists, setMenuLists] = useState([]);
 
   var siteConfig = qryData?.strapiSiteConfiguration;
@@ -87,7 +86,7 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (siteConfig) {
       if (siteConfig?.Name) {
-        setSiteName(siteConfig?.Name);
+        //setSiteName(siteConfig?.Name);
       }
     }
     if (menuData) {

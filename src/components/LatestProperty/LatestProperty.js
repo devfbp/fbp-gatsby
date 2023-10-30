@@ -1,15 +1,12 @@
 import * as React from "react"
 import './LatestProperty.scss'
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useStaticQuery, graphql } from "gatsby";
 import { imgUrl, rupeeFormat } from "../../utils";
-import Image from 'react-bootstrap/Image';
-import './LatestProperty.scss'
-import ListGroup from 'react-bootstrap/ListGroup';
+import './LatestProperty.scss';
 
 function LatestProperty(props) {
   const qryData = useStaticQuery(graphql`

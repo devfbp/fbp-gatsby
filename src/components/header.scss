@@ -2,6 +2,13 @@
 @import "../scss/variables.scss";
 
 .navbar {
+    .container-fluid {
+        height: 100px;
+        @media only screen and (max-width: $mobile) {
+            height: auto;
+        }
+    }
+
     .navbar-a {
         //text-transform: uppercase;
         display: block;
@@ -19,13 +26,16 @@
         border: 0;
         transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
     }
+
     .navbar-a-dropdown {
         padding: 3px 0px 0px 10px;
     }
+
     .navbar-a:hover {
         color: $color7 !important;
         font-weight: 500 !important;
     }
+
     .navbar-icon {
         background: $color7;
         color: #ffffff;
@@ -42,11 +52,27 @@
             font-size: 23px !important;
         }
     }
+
+    .brand-logo {
+        img {
+            width: 130px;
+            height: 100px;
+
+            @media only screen and (max-width: $mobile) {
+                width: 80px;
+                height: 60px;
+            }
+        }
+    }
 }
+
 .colorline {
-    margin-top: 71px;
+    margin-top: 105px;
     position: relative;
     height: 14px;
+    @media only screen and (max-width: $mobile) {
+        margin-top: 75px;
+    }
     img {
         width: 100% !important;
     }

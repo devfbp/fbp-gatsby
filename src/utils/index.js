@@ -1,5 +1,4 @@
 import * as React from "react"
-import { navigate } from "gatsby";
 import Noimage from '../images/no_image.png'
 
 const imgUrl = (value) => {
@@ -32,13 +31,6 @@ const rupeeFormat = (numbers) => {
         convertedNF = numbers;
     }
     return "₹ "+convertedNF.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-const titleDesign = (title) => {
-    if(title) {
-        return "hai";
-    }
-    return title;
 }
 
 export {numberFormat,rupeeFormat,imgUrl,imgPublicUrl}

@@ -6,6 +6,7 @@ import Image from 'react-bootstrap/Image';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ColorLine from '../images/colorline.jpg'
 import './header.scss';
+import Logo  from '../images/fbp_logo_new.svg'
 
 function Header(props) {
   //console.log("log:",props.siteConfig.Top_Menu)
@@ -26,6 +27,7 @@ function Header(props) {
         //dummyArray.push(menu?.Menu?.Name);
         childMenuList[m].push(obj);
       }
+      return true;
     });
     dummyArray.splice(0, 1)
   }
@@ -35,7 +37,7 @@ function Header(props) {
     <>
       <Navbar bg="light" expand="lg" className="navbar" variant="light" fixed="top">
         <Container fluid>
-          <Navbar.Brand href="/" className="brand-logo"><Image width={"auto"} height={"auto"} alt="logo" src={props?.siteConfig?.Logo?.file?.publicURL} /></Navbar.Brand>
+          <Navbar.Brand href="/" className="brand-logo"><Image width={"100px"} height={"80px"} alt="logo" src={Logo} /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="navbarScroll">
             {props.siteConfig.Top_Menu &&

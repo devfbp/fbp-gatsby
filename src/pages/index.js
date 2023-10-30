@@ -61,7 +61,7 @@ const IndexPage = () => {
         <Container>
           {Module_Enabled && Module_Enabled.map((module, index) => (
             <>
-              {module?.Enabled == true &&
+              {module?.Enabled === true &&
                 <>
                   {module && module?.Collection_Name === "Property_Type" &&
                     <PropertyType title={module?.Name} />
