@@ -4,89 +4,41 @@ import Seo from "../components/seo"
 import HomePageBanner from '../components/HomePageBanner/HomePageBanner';
 import PropertyType from "../components/PropertyType/PropertyType";
 import CallService from "../components/CallService/CallService"
-import Area from "../components/Area/Area"
+import NoPage from "../components/NoPage/NoPage"
 import LatestProperty from '../components/LatestProperty/LatestProperty';
 import Builder from '../components/Builder/Builder';
 import { useStaticQuery, graphql } from "gatsby";
-import '../scss/common.scss';
+import '../scss/NoPage.scss';
 import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/esm/Row";
+import Col from "react-bootstrap/esm/Col";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 
 const IndexPage = () => {
-  const qryData = useStaticQuery(graphql`
-      query HomeArticleData {
-        strapiArticle(Alias: {eq: "home"}) {
-          id
-          Alias
-          Banner_Image {
-            id
-            file {
-              childImageSharp {
-                gatsbyImageData(height: 420, width: 1300)
-              }
-            }
-          }
-          Name
-          Menu_Link {
-            Menu_Link
-            Name
-            Menu_Type
-            Menu_Link_Type
-          }
-          Description
-          Banner_Text
-          Banner_Image_Mobile {
-            file {
-              childImageSharp {
-                gatsbyImageData(height: 420, width: 378)
-              }
-            }
-          }
-          Module_Enabled {
-            Enabled
-            Name
-            Collection_Name
-          }
-        }
-      }
-    `);
-  const HomeArticleData = qryData?.strapiArticle;
-  const Module_Enabled = HomeArticleData?.Module_Enabled;
-  return (
-    <Layout>
-      <>
-        {HomeArticleData?.Banner_Image &&
-          <HomePageBanner dataV={HomeArticleData} />
-        }
-        <Container>
-          {Module_Enabled && Module_Enabled.map((module, index) => (
-            <>
-              {module?.Enabled === true &&
-                <>
-                  {module && module?.Collection_Name === "Property_Type" &&
-                    <PropertyType title={module?.Name} />
-                  }
-                  {module && module?.Collection_Name === "Contact_Module" &&
-                    <CallService />
-                  }
-                  {module && module?.Collection_Name === "Area" &&
-                    <Area title={module?.Name} />
-                  }
-                  {module && module?.Collection_Name === "Latest_Property" &&
-                    <LatestProperty title={module?.Name} />
-                  }
-                  {module && module?.Collection_Name === "Builder" &&
-                    <Builder title={module?.Name} />
-                  }
-                </>
-              }
-            </>
-          ))
-          }
-        </Container>
 
-      </>
-    </Layout>
+  return (
+
+    <Row className="nopage-div">
+      <Col>
+        <div className="title">
+          <h2>Full Basket Property</h2>
+        </div>
+        <p>WE WILL BE BACK <br />SOON</p>
+        <p className="progressbar">
+          PROGRESS<br />
+          <ProgressBar
+            completed={80}
+            animateOnRender={true}
+            bgColor={"#F58634"}
+          />
+        </p>
+        <h5>Contact Us</h5>
+        <h5>Call: <a href="tel:9019000400">9019000400</a></h5>
+        <h5>Email: <a href="mailto:sales@fullbasketproperty.com">sales@fullbasketproperty.com</a></h5>
+      </Col>
+    </Row>
+
   )
 }
 /**

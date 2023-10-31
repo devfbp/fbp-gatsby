@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@ramonak/react-progress-bar": "^5.0.3",
     "better-queue-memory": "^1.0.4",
     "bootstrap": "^5.3.2",
     "font-awesome": "^4.7.0",
