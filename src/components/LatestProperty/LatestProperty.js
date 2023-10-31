@@ -7,6 +7,9 @@ import Col from 'react-bootstrap/Col';
 import { useStaticQuery, graphql } from "gatsby";
 import { imgUrl, rupeeFormat } from "../../utils";
 import './LatestProperty.scss';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import "animate.css/animate.min.css";
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 function LatestProperty(props) {
   const qryData = useStaticQuery(graphql`
@@ -43,7 +46,8 @@ function LatestProperty(props) {
   const LatestPropertyData = qryData?.allStrapiProperty?.nodes;
   const FirstPropertyData = qryData?.allStrapiProperty?.nodes[0];
   return (
-    <>
+    <AnimationOnScroll animateIn="animate__fadeIn" animateOut="animate__fadeOut">
+    
       <div className="latest-property">
         <h2 className="lp-title">{props.title}</h2>
         <span className="separator"><hr /></span>
@@ -51,11 +55,11 @@ function LatestProperty(props) {
           <Row>
             <Col lg={6} className="lp-firstprop">
               <Card className="lp-card text-white">
-                <Card.Img variant="top" src={imgUrl(FirstPropertyData.Main_Image)} />
+                <LazyLoadImage variant="top" src={imgUrl(FirstPropertyData.Main_Image)} />
                 <Card.ImgOverlay className="d-flex align-items-end">
                   <Card.Text>
                     <Row>
-                      <Col lg={12}><h3>2 & 3 BHK Yuva Houses</h3></Col>                      
+                      <Col lg={12}><h3>2 & 3 BHK Yuva Houses</h3></Col>
                       <Col lg={12} className="lp-price">{rupeeFormat(FirstPropertyData.Price)}</Col>
                       <Col lg={12} className="lp-small">{FirstPropertyData.Door_No + ", " + FirstPropertyData.Street_Name}</Col>
                       <Col lg={12} className="lp-small">{FirstPropertyData.Area.Name}</Col>
@@ -72,13 +76,13 @@ function LatestProperty(props) {
                     {index > 0 &&
                       <Col lg={6} className="lp-rightprop">
                         <Card className="lp-card text-white">
-                          <Card.Img src={imgUrl(prop.Main_Image)} />
+                          <LazyLoadImage src={imgUrl(prop.Main_Image)} />
                           <Card.ImgOverlay className="d-flex align-items-end">
                             <Card.Text>
                               <Row>
                                 <Col lg={12}><h3>2 & 3 BHK Yuva Houses</h3></Col>
                                 <Col lg={12} className="lp-price">{rupeeFormat(prop.Price)}</Col>
-                                <Col lg={12} className="lp-small">{prop.Door_No + "," + prop.Street_Name}</Col>                                
+                                <Col lg={12} className="lp-small">{prop.Door_No + "," + prop.Street_Name}</Col>
                                 <Col lg={12} className="lp-small">{prop.Area.Name}</Col>
                               </Row>
                             </Card.Text>
@@ -93,7 +97,7 @@ function LatestProperty(props) {
           </Row>
         </Container>
       </div>
-    </>
+    </AnimationOnScroll>
   );
 }
 

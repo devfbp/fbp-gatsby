@@ -10,6 +10,9 @@ import Card from 'react-bootstrap/Card';
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import 'font-awesome/css/font-awesome.min.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import "animate.css/animate.min.css";
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 function SingleCarouselImage(props) {
   const qryData = useStaticQuery(graphql`
@@ -33,6 +36,7 @@ function SingleCarouselImage(props) {
   const AreaData = qryData?.allStrapiArea?.nodes;
   return (
     <>
+    <AnimationOnScroll animateIn="animate__fadeIn" animateOut="animate__fadeOut">
       <div className="area-div">
         <h2 className="ar-title">{props.title}</h2>
         <span className="ar-separator"><hr /></span>
@@ -44,7 +48,7 @@ function SingleCarouselImage(props) {
                   <Card.Body className="ar-card-body">
                     <Card.Title className="ar-card-title"><i className="fa fa-map-marker fa-lg ar-mapicon"></i>{area?.Name}</Card.Title>
                   </Card.Body>
-                  <Card.Img variant="top" src={imgUrl(area?.Image)} />
+                  <LazyLoadImage variant="top" src={imgUrl(area?.Image)} />
                 </Card>
               </Col>
             </>
@@ -52,6 +56,7 @@ function SingleCarouselImage(props) {
           }
         </Row>
       </div>
+      </AnimationOnScroll>
     </>
   )
 }

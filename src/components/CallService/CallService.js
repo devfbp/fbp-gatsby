@@ -9,6 +9,8 @@ import Card from 'react-bootstrap/Card';
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
+import "animate.css/animate.min.css";
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 function SingleCarouselImage(props) {
   const qryData = useStaticQuery(graphql`
@@ -30,8 +32,8 @@ function SingleCarouselImage(props) {
     `);
   const CallServiceData = qryData?.strapiContactModule;
   return (
-    <>
-      <a href={"tel:"+CallServiceData?.Phone_Number} className="a-tag">
+    <AnimationOnScroll animateIn="animate__bounceIn" animateOut="animate__bounceOut">
+      <a href={"tel:" + CallServiceData?.Phone_Number} className="a-tag">
         <Container>
           <Row className="call-service">
             {CallServiceData &&
@@ -50,7 +52,7 @@ function SingleCarouselImage(props) {
           </Row>
         </Container>
       </a>
-    </>
+    </AnimationOnScroll>
   )
 }
 export default SingleCarouselImage

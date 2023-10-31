@@ -7,6 +7,7 @@ import { imgPublicUrl } from "../../utils";
 import Image from 'react-bootstrap/Image';
 import './Builder.scss'
 import Row from "react-bootstrap/esm/Row";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function Builder(props) {
   const qryData = useStaticQuery(graphql`
@@ -57,7 +58,7 @@ function Builder(props) {
         >
           {BuilderData && BuilderData.map((builder, index) => (
             <div>
-              <Image className="d-block w-100 banner-image" src={imgPublicUrl(builder?.Image)} alt={"BannerImage"} width={300} height={210} />
+              <LazyLoadImage className="d-block w-100 banner-image" src={imgPublicUrl(builder?.Image)} alt={"BannerImage"} width={300} height={210} />
               {builder?.Name &&
                 <p>{builder?.Name}</p>
               }
