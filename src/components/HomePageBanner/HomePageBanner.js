@@ -9,6 +9,10 @@ import './HomePageBanner.scss'
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Zoom from 'react-reveal/Zoom';
+import Form from 'react-bootstrap/Form';
+import Row from "react-bootstrap/esm/Row";
+import Col from "react-bootstrap/esm/Col";
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function SingleCarouselImage(props) {
   const image_desktop = imgUrl(props?.dataV?.Banner_Image);
@@ -46,12 +50,22 @@ function SingleCarouselImage(props) {
             {banner_text &&
               <Carousel.Caption>
                 {ReactHtmlParser(banner_text)}
+                <Form>
+                  <Row>
+                    <Col lg={6}>
+                      <InputGroup className="mb-3">
+                        <Form.Control type="text" name="search_keyword" id="search_keyword" placeholder="Enter Location..." />
+                        <InputGroup.Text className="home-search-keyword"><a href="#">Search</a></InputGroup.Text>
+                      </InputGroup>
+                    </Col>
+                  </Row>
+                </Form>
               </Carousel.Caption>
             }
           </Carousel.Item>
         }
       </Carousel>
-    </Zoom>
+    </Zoom >
   )
 }
 export default SingleCarouselImage

@@ -2,7 +2,8 @@
 @import "variables.scss";
 
 *,
-html, body {
+html,
+body {
     font-family: $primary_font;
     text-size-adjust: none;
     -webkit-text-size-adjust: none;
@@ -34,6 +35,22 @@ html, body {
         border-width: 1px;
     }
 }
+
 .react-multiple-carousel__arrow {
     background: $color7;
+}
+
+.form-control {
+    border-radius: 0px !important;
+    border: 1px solid $color7 !important;
+}
+
+.home-search-keyword {
+    background-color: $blue;
+    border-radius: 0px;
+    a {
+        color: $white;
+        text-decoration: none;
+        font-size: 22px;
+    }
 }
