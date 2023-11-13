@@ -10,7 +10,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import { useState, useEffect } from "react";
 import Header from "./header";
 import Footer from "./footer";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Helmet } from "react-helmet";
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Layout = ({ children }) => {
   const qryData = useStaticQuery(graphql`
@@ -96,10 +97,20 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteConfig={siteConfig} menuLists={menuLists} />
-      <div>
-        <main>{children}</main>
+      <Helmet>
+        <script src="/assets/js/plugins.js" type="text/javascript" />
+      </Helmet>
+      <div class="quarter-overlay">
+        <div class="cv-spinner">
+          <span class="spinner"></span>
+        </div>
       </div>
-      <Footer siteConfig={siteConfig} />
+      <div class="page-wrapper">
+        <div id="quarter">{children}</div>
+      </div>
+      <Helmet>
+        <script src="/assets/js/main.js" type="text/javascript" />
+      </Helmet>
     </>
   )
 }

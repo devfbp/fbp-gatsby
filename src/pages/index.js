@@ -1,91 +1,34 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import HomePageBanner from '../components/HomePageBanner/HomePageBanner';
-import PropertyType from "../components/PropertyType/PropertyType";
-import CallService from "../components/CallService/CallService"
-import Area from "../components/Area/Area"
-import LatestProperty from '../components/LatestProperty/LatestProperty';
-import Builder from '../components/Builder/Builder';
-import { useStaticQuery, graphql } from "gatsby";
-import '../scss/common.scss';
-import Container from "react-bootstrap/esm/Container";
-
+import Navbar from '../components/global-components/navbar-v3';
+import Banner from '../components/section-components/banner-v3';
+import SearchForm from '../components/section-components/search-form';
+import Features from '../components/section-components/features-v1';
+import ProductSlider from '../components/section-components/product-slider-v3';
+import FeaturedItem from '../components/section-components/featured-item-v1';
+import Video from '../components/section-components/video-v1';
+import Testimonial from '../components/section-components/testimonial-v3';
+import Sponsor from '../components/section-components/sponsor-v1';
+import BlogSlider from '../components/blog-components/blog-slider-v1';
+import CallToActionV1 from '../components/section-components/call-to-action-v1';
+import Footer from '../components/global-components/footer';
 
 const IndexPage = () => {
-  const qryData = useStaticQuery(graphql`
-      query HomeArticleData {
-        strapiArticle(Alias: {eq: "home"}) {
-          id
-          Alias
-          Banner_Image {
-            id
-            file {
-              childImageSharp {
-                gatsbyImageData(height: 420, width: 1300)
-              }
-            }
-          }
-          Name
-          Menu_Link {
-            Menu_Link
-            Name
-            Menu_Type
-            Menu_Link_Type
-          }
-          Description
-          Banner_Text
-          Banner_Image_Mobile {
-            file {
-              childImageSharp {
-                gatsbyImageData(height: 420, width: 378)
-              }
-            }
-          }
-          Module_Enabled {
-            Enabled
-            Name
-            Collection_Name
-          }
-        }
-      }
-    `);
-  const HomeArticleData = qryData?.strapiArticle;
-  const Module_Enabled = HomeArticleData?.Module_Enabled;
   return (
     <Layout>
-      <>
-        {HomeArticleData?.Banner_Image &&
-          <HomePageBanner dataV={HomeArticleData} />
-        }
-        <Container>
-          {Module_Enabled && Module_Enabled.map((module, index) => (
-            <>
-              {module?.Enabled === true &&
-                <>
-                  {module && module?.Collection_Name === "Property_Type" &&
-                    <PropertyType title={module?.Name} />
-                  }
-                  {module && module?.Collection_Name === "Contact_Module" &&
-                    <CallService />
-                  }
-                  {module && module?.Collection_Name === "Area" &&
-                    <Area title={module?.Name} />
-                  }
-                  {module && module?.Collection_Name === "Latest_Property" &&
-                    <LatestProperty title={module?.Name} />
-                  }
-                  {module && module?.Collection_Name === "Builder" &&
-                    <Builder title={module?.Name} />
-                  }
-                </>
-              }
-            </>
-          ))
-          }
-        </Container>
-
-      </>
+      <Navbar />
+      <Banner />
+      <SearchForm />
+      <Features customClass="ltn__feature-area section-bg-1--- pt-115 pb-90 mb-120---" />
+      <ProductSlider />
+      <FeaturedItem />
+      <Video />
+      <Testimonial />
+      <Sponsor />
+      <BlogSlider sectionClass="pt-120" />
+      <CallToActionV1 />
+      <Footer />
     </Layout>
   )
 }

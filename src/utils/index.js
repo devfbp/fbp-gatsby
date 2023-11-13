@@ -12,7 +12,7 @@ const imgUrl = (value) => {
 const imgPublicUrl = (value) => {
     if(value) {
         //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
-        return value?.file?.publicURL;
+        return value?.file?.PublicUrl;
     }
     return Noimage;
 }
