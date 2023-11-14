@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 import Social from '../section-components/social';
 
 class NavbarV2 extends Component {

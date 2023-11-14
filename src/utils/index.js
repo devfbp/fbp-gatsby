@@ -2,7 +2,7 @@ import * as React from "react"
 import Noimage from '../images/no_image.png'
 
 const imgUrl = (value) => {
-    if(value) {
+    if (value) {
         //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
         return value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src;
     }
@@ -10,7 +10,7 @@ const imgUrl = (value) => {
 }
 
 const imgPublicUrl = (value) => {
-    if(value) {
+    if (value) {
         //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
         return value?.file?.PublicUrl;
     }
@@ -19,7 +19,7 @@ const imgPublicUrl = (value) => {
 
 const numberFormat = (numbers) => {
     let convertedNF = 0;
-    if(numbers) {
+    if (numbers) {
         convertedNF = numbers;
     }
     return convertedNF.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -27,10 +27,16 @@ const numberFormat = (numbers) => {
 
 const rupeeFormat = (numbers) => {
     let convertedNF = 0;
-    if(numbers) {
+    if (numbers) {
         convertedNF = numbers;
     }
-    return "₹ "+convertedNF.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return "₹ " + convertedNF.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export {numberFormat,rupeeFormat,imgUrl,imgPublicUrl}
+const importScript = (src) => {
+    const script = document.createElement('script')
+    script.src = src
+    script.async = true
+    return document.body.appendChild(script);
+}
+export { numberFormat, rupeeFormat, imgUrl, imgPublicUrl, importScript }

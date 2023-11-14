@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 import parse from 'html-react-parser';
 
 class VideoV3 extends Component {

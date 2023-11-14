@@ -10,7 +10,7 @@ import Logo  from '../images/fbp_logo_new.svg'
 
 function Header(props) {
   //console.log("log:",props.siteConfig.Top_Menu)
-  //const [theArray, setTheArray] = useState([]);
+  //const [theArray, setTheArray] = useState([]); 
   const defaultMenu = "Root";
   const childMenuList = [];
   const dummyArray = [defaultMenu];

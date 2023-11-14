@@ -8,9 +8,11 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { useState, useEffect } from "react";
+import { importScript } from "../utils"
 import Header from "./header";
 import Footer from "./footer";
 import { Helmet } from "react-helmet";
+import jquery from 'jquery';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Layout = ({ children }) => {
@@ -33,6 +35,9 @@ const Layout = ({ children }) => {
           Logo {
             file {
               publicURL
+              childImageSharp {
+                gatsbyImageData(height: 100, width: 170)
+              }
             }
           }
           Name
@@ -85,6 +90,7 @@ const Layout = ({ children }) => {
   var menuData = qryData?.allStrapiMenu?.nodes;
   //console.log("log:",menuData)
   useEffect(() => {
+    importScript("/assets/js/plugins.js")
     if (siteConfig) {
       if (siteConfig?.Name) {
         //setSiteName(siteConfig?.Name);
@@ -97,9 +103,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteConfig={siteConfig} menuLists={menuLists} />
-      <Helmet>
-        <script src="/assets/js/plugins.js" type="text/javascript" />
-      </Helmet>
       <div class="quarter-overlay">
         <div class="cv-spinner">
           <span class="spinner"></span>
@@ -108,9 +111,7 @@ const Layout = ({ children }) => {
       <div class="page-wrapper">
         <div id="quarter">{children}</div>
       </div>
-      <Helmet>
-        <script src="/assets/js/main.js" type="text/javascript" />
-      </Helmet>
+      <Footer />
     </>
   )
 }

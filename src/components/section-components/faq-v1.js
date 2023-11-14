@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 import parse from 'html-react-parser';
 
 class FaqV1 extends Component {

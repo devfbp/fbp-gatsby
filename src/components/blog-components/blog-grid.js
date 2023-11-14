@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 class BlogGrid extends Component {
   render() {
     let PublicUrl = process.env.GATSBY_PUBLIC_URL+'/'

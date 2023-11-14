@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import parse from 'html-react-parser';
+import * as React from "react";
 
-class Social extends Component {
-
-    render() {
-
-        let PublicUrl = process.env.GATSBY_PUBLIC_URL+'/'
-
-    return <div className="ltn__social-media">
-			<ul>
-				<li><a href="https://www.facebook.com/tuna-theme" title="Facebook"><i className="fab fa-facebook-f" /></a></li>
-				<li><a href="https://www.twitter.com/tuna-theme" title="Twitter"><i className="fab fa-twitter" /></a></li>
-				<li><a href="https://www.instagram.com/tuna-theme" title="Instagram"><i className="fab fa-instagram" /></a></li>
-				<li><a href="https://www.dribble.com/tuna-theme" title="Dribbble"><i className="fab fa-dribbble" /></a></li>
-			</ul>
-		</div>
-        }
+function Social(props) {
+	let PublicUrl = process.env.GATSBY_PUBLIC_URL + '/'
+	const links = props?.links;
+	return (
+		<>
+			{
+				links &&
+				<div className={props.clsname} >
+					<ul>
+						{links.map((link) => (
+							<li><a href={link.Link} target="_blank" title={link.Name}><i className={link.Icon} /></a></li>
+						))}
+					</ul>
+				</div>
+			}
+		</>
+	)
 }
 
 export default Social
