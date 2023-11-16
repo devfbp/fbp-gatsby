@@ -4,14 +4,11 @@ import '../../static/assets/css/plugins.css'
 import '../../static/assets/css/style.css'
 import '../../static/assets/css/responsive.css'
 import Social from '../components/section-components/social';
-import { imgUrl } from "../utils";
+import { imgPublicUrl } from "../utils";
 import HeaderMenu from './header-menu';
 function Header(props) {
   const siteConfig = props?.siteConfig;
-  let PublicUrl = process.env.GATSBY_PUBLIC_URL + '/';
-  const logo = imgUrl(siteConfig?.Logo);
-  let imgattr = 'logo'
-  let anchor = '#'
+  const logo = imgPublicUrl(siteConfig?.Logo);
   const defaultMenu = "Root";
   const childMenuList = [];
   const dummyArray = [defaultMenu];
@@ -22,17 +19,14 @@ function Header(props) {
       if (!dummyArray.includes(m)) {
         dummyArray.push(m);
         childMenuList[m] = [];
-        //console.log("log:",menulist)
       }
       if (childMenuList[m]) {
-        //dummyArray.push(menu?.Menu?.Name);
         childMenuList[m].push(obj);
       }
       return true;
     });
     dummyArray.splice(0, 1)
   }
-  console.log("log:", dummyArray)
   return (
     <div>
       <header className="ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent gradient-color-4---">

@@ -11,8 +11,8 @@ const imgUrl = (value) => {
 
 const imgPublicUrl = (value) => {
     if (value) {
-        //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
-        return value?.file?.PublicUrl;
+        //console.log("log:",value?.file?.publicURL)
+        return value?.file?.publicURL;
     }
     return Noimage;
 }

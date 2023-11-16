@@ -3,9 +3,13 @@ import Social from '../components/section-components/social';
 import Copyright from '../components/global-components/copyright';
 import { useState, useEffect } from "react";
 import $ from 'jquery';
-import { importScript } from "../utils"
+import { importScript, imgPublicUrl } from "../utils"
+import ReactHtmlParser from 'react-html-parser';
 
-const Footer_v1 = ({ children }) => {
+const Footer_v1 = (props) => {
+  const siteConfig = props?.siteConfig;
+  const logo = imgPublicUrl(siteConfig?.Logo);
+  console.log(siteConfig)
   useEffect(() => {
     if (typeof window != "undefined") {
       //$(".quarter-overlay").fadeIn(1);
@@ -33,7 +37,8 @@ const Footer_v1 = ({ children }) => {
   }, []);
 
   let publicURL = process.env.GATSBY_PUBLIC_URL + '/'
-  let imgattr = "Footer logo"
+  let imgattr = "Footer logo";
+
   return (
     <><footer className="ltn__footer-area  ">
       <div className="footer-top-area  section-bg-2 plr--5">
@@ -43,10 +48,10 @@ const Footer_v1 = ({ children }) => {
               <div className="footer-widget footer-about-widget">
                 <div className="footer-logo">
                   <div className="site-logo">
-                    <img src={publicURL + "assets/img/logo-2.png"} alt="Logo" />
+                    <img src={logo} alt="Logo" />
                   </div>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
+
                 <div className="footer-address">
                   <ul>
                     <li>
@@ -54,7 +59,7 @@ const Footer_v1 = ({ children }) => {
                         <i className="icon-placeholder" />
                       </div>
                       <div className="footer-address-info">
-                        <p>Brooklyn, New York, United States</p>
+                        <p>{ReactHtmlParser(siteConfig?.Address)}</p>
                       </div>
                     </li>
                     <li>
@@ -62,7 +67,7 @@ const Footer_v1 = ({ children }) => {
                         <i className="icon-call" />
                       </div>
                       <div className="footer-address-info">
-                        <p><a href="tel:+0123-456789">+0123-456789</a></p>
+                        <p><a href={"tel:" + siteConfig?.Phone_Number}>{siteConfig?.Phone_Number}</a></p>
                       </div>
                     </li>
                     <li>
@@ -70,7 +75,7 @@ const Footer_v1 = ({ children }) => {
                         <i className="icon-mail" />
                       </div>
                       <div className="footer-address-info">
-                        <p><a href="mailto:example@example.com">example@example.com</a></p>
+                        <p><a href={"mainto:" + siteConfig?.Email_Id + "&Subject=I%20am%20Interested"}>{siteConfig?.Email_Id}</a></p>
                       </div>
                     </li>
                   </ul>
@@ -85,43 +90,20 @@ const Footer_v1 = ({ children }) => {
                 <h4 className="footer-title">Company</h4>
                 <div className="footer-menu go-top">
                   <ul>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/blog-grid">Blog</a></li>
-                    <li><a href="/shop">All Products</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="/contact">Contact us</a></li>
+                    {siteConfig.Footer_Menu_Links &&
+                      siteConfig.Footer_Menu_Links.map((menu) => (
+                        <li><a href={menu?.Link?.Menu_Link}>{menu?.Link?.Name}</a></li>
+                      ))
+                    }
                   </ul>
                 </div>
               </div>
             </div>
-            <div className="col-xl-2 col-md-6 col-sm-6 col-12">
+            <div className="col-xl-4 col-md-6 col-sm-6 col-12">
               <div className="footer-widget footer-menu-widget clearfix">
-                <h4 className="footer-title">Services</h4>
+                <h4 className="footer-title">Popular Search</h4>
                 <div className="footer-menu go-top">
-                  <ul>
-                    <li><a href="/cart">Cart</a></li>
-                    <li><a href="/wishlist">Wish List</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/checkout">Checkout</a></li>
-                    <li><a href="/about">Terms &amp; Conditions</a></li>
-                    <li><a href="/shop">Promotional Offers</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-md-6 col-sm-6 col-12">
-              <div className="footer-widget footer-menu-widget clearfix">
-                <h4 className="footer-title">Customer Care</h4>
-                <div className="footer-menu go-top">
-                  <ul>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/my-account">My account</a></li>
-                    <li><a href="/wishlist">Wish List</a></li>
-                    <li><a href="/add-listing">Add listing</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="/contact">Contact us</a></li>
-                  </ul>
+                  {ReactHtmlParser(siteConfig.Popular_Search?.Search_List)}
                 </div>
               </div>
             </div>
@@ -137,14 +119,12 @@ const Footer_v1 = ({ children }) => {
                     </div>
                   </form>
                 </div>
-                <h5 className="mt-30">We Accept</h5>
-                <img src={publicURL + "assets/img/icons/payment-4.png"} alt="Payment Image" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Copyright />
+      <Copyright siteConfig={props.siteConfig}/>
     </footer>
     </>
   )

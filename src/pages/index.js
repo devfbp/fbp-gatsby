@@ -5,7 +5,7 @@ import Seo from "../components/seo"
 import Banner from '../components/section-components/banner-v3';
 import SearchForm from '../components/section-components/search-form';
 import Features from '../components/section-components/features-v1';
-import ProductSlider from '../components/section-components/product-slider-v3';
+import PropertyLocation from '../components/section-components/propperty-location';
 import FeaturedItem from '../components/section-components/featured-item-v1';
 import Video from '../components/section-components/video-v1';
 import Testimonial from '../components/section-components/testimonial-v3';
@@ -18,15 +18,7 @@ const IndexPage = () => {
       query HomeArticleData {
         strapiArticle(Alias: {eq: "home"}) {
           id
-          Alias
-          Banner_Image {
-            id
-            file {
-              childImageSharp {
-                gatsbyImageData(height: 900, width: 1920)
-              }
-            }
-          }
+          Alias          
           Name
           Menu_Link {
             Menu_Link
@@ -34,14 +26,19 @@ const IndexPage = () => {
             Menu_Type
             Menu_Link_Type
           }
-          Description
-          Banner_Text
-          Banner_Image_Mobile {
-            file {
-              childImageSharp {
-                gatsbyImageData(height: 420, width: 378)
+          Banners {
+            Image {
+              file {
+                childImageSharp {
+                  gatsbyImageData(width: 1920, height: 900)
+                }
               }
             }
+            Description
+            Line_1
+            Line_2
+            Line_3
+            Line_4
           }
           Module_Enabled {
             Enabled
@@ -56,8 +53,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <>
-        {HomeArticleData?.Banner_Image &&
-          <Banner HomeArtl={HomeArticleData} />
+        {HomeArticleData?.Banners &&
+          <Banner Banners={HomeArticleData?.Banners} />
         }
         {Module_Enabled && Module_Enabled.map((module, index) => (
           <>
@@ -70,7 +67,7 @@ const IndexPage = () => {
                   <Features customClass="ltn__feature-area section-bg-1--- pt-115 pb-90 mb-120---" />
                 }
                 {module && module?.Collection_Name === "Area" &&
-                  <ProductSlider title={module?.Name} />
+                  <PropertyLocation title={module?.Name} />
                 }
                 {module && module?.Collection_Name === "Latest_Property" &&
                   <FeaturedItem />

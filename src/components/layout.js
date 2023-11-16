@@ -35,9 +35,6 @@ const Layout = ({ children }) => {
           Logo {
             file {
               publicURL
-              childImageSharp {
-                gatsbyImageData(height: 100, width: 170)
-              }
             }
           }
           Name
@@ -71,6 +68,16 @@ const Layout = ({ children }) => {
           }
           Popular_Search {
             Search_List
+          }
+          Privacy_Policy {
+            id
+            Name
+            Menu_Link
+          }
+          Terms_Conditions {
+            id
+            Name
+            Menu_Link
           }
         }
         allStrapiMenu {
@@ -111,7 +118,7 @@ const Layout = ({ children }) => {
       <div class="page-wrapper">
         <div id="quarter">{children}</div>
       </div>
-      <Footer />
+      <Footer siteConfig={siteConfig} menuLists={menuLists} />
     </>
   )
 }
