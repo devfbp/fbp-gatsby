@@ -4,10 +4,10 @@ import { useStaticQuery, graphql } from "gatsby";
 import Seo from "../components/seo"
 import Banner from '../components/section-components/banner-v3';
 import SearchForm from '../components/section-components/search-form';
-import Features from '../components/section-components/features-v1';
+import PropertyType from '../components/section-components/property-type';
 import PropertyLocation from '../components/section-components/propperty-location';
 import FeaturedItem from '../components/section-components/featured-item-v1';
-import Video from '../components/section-components/video-v1';
+import VideoBanner from '../components/section-components/video-banner';
 import Testimonial from '../components/section-components/testimonial-v3';
 import Sponsor from '../components/section-components/sponsor-v1';
 import BlogSlider from '../components/blog-components/blog-slider-v1';
@@ -45,6 +45,17 @@ const IndexPage = () => {
             Name
             Collection_Name
           }
+          Video_Banners {
+            Name
+            URL
+            Image {
+              file {
+                childImageSharp {
+                  gatsbyImageData(width: 1923, height: 443)
+                }
+              }
+            }
+          }
         }
       }
     `);
@@ -64,7 +75,7 @@ const IndexPage = () => {
                   <SearchForm />
                 }
                 {module && module?.Collection_Name === "Property_Type" &&
-                  <Features customClass="ltn__feature-area section-bg-1--- pt-115 pb-90 mb-120---" />
+                  <PropertyType customClass="ltn__feature-area section-bg-1--- pt-115 pb-90 mb-120---" />
                 }
                 {module && module?.Collection_Name === "Area" &&
                   <PropertyLocation title={module?.Name} />
@@ -72,17 +83,17 @@ const IndexPage = () => {
                 {module && module?.Collection_Name === "Latest_Property" &&
                   <FeaturedItem />
                 }
-                {module && module?.Collection_Name === "Video" &&
-                  <Video />
+                {module && module?.Collection_Name === "Video_Banners" &&
+                  <VideoBanner Video={HomeArticleData?.Video_Banners} />
                 }
                 {module && module?.Collection_Name === "Clients_Feedback" &&
-                  <Testimonial />
+                  <Testimonial title={module?.Name} />
                 }
                 {module && module?.Collection_Name === "Builder" &&
                   <Sponsor />
                 }
                 {module && module?.Collection_Name === "News" &&
-                  <BlogSlider sectionClass="pt-120" />
+                  <BlogSlider sectionClass="pt-120" title={module?.Name} />
                 }
                 {module && module?.Collection_Name === "Call_To_Action" &&
                   <CallToActionV1 />
