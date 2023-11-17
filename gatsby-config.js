@@ -57,8 +57,7 @@ module.exports = {
           'builder',
           'client-feedback',
           'blog',
-          'blog-tag',
-          'property-status'
+          'blog-tag'
         ],
         singleTypes: ['site-configuration', 'contact-module'],
         // Extract images from markdown / richtext fields.
