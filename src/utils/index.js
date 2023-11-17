@@ -1,5 +1,6 @@
 import * as React from "react"
 import Noimage from '../images/no_image.png'
+import ReactHtmlParser from 'react-html-parser';
 
 const imgUrl = (value) => {
     if (value) {
@@ -33,10 +34,25 @@ const rupeeFormat = (numbers) => {
     return "₹ " + convertedNF.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+const priceString = (numbers) => {
+    let convertedNF = 0;
+    if (numbers) {
+        convertedNF = numbers;
+    }
+    return "₹ " + convertedNF;
+}
+
+const subStr = (str) => {
+    if (str) {
+        str = str.substring(0,60)+"...";
+    }
+    return ReactHtmlParser(str);
+}
+
 const importScript = (src) => {
     const script = document.createElement('script')
     script.src = src
     script.async = true
     return document.body.appendChild(script);
 }
-export { numberFormat, rupeeFormat, imgUrl, imgPublicUrl, importScript }
+export { numberFormat, rupeeFormat, imgUrl, imgPublicUrl, importScript, priceString, subStr }

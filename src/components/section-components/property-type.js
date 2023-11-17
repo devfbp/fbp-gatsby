@@ -1,7 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby";
 function PropertyType(props) {
-
 	const qryData = useStaticQuery(graphql`
       query PropertyTypeData {
         allStrapiPropertyType(sort: {Sort: ASC}) {
