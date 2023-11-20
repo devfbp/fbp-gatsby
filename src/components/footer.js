@@ -17,7 +17,7 @@ const Footer_v1 = (props) => {
       setTimeout(function () {
         importScript("assets/js/main.js");
         //$(".quarter-overlay").fadeOut(300);
-      }, 100);
+      }, 300);
 
       $('.go-top').find('a').on('click', function () {
         $(".quarter-overlay").fadeIn(1);

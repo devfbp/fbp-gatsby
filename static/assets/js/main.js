@@ -1900,7 +1900,7 @@
               var slideImageliIndex = (slick.slideCount == liIndex) ? liIndex - 1 : liIndex;
               var cart = $('.ltn__testimonial-slider-4 .slick-slide[data-slick-index="' + slideImageliIndex + '"]').find('.ltn__testimonial-image');
               var imgtodrag = $('.ltn__testimonial-quote-menu li:nth-child(' + liIndex + ')').find("img").eq(0);
-              if (imgtodrag) {
+              if (imgtodrag.length) {
                   AnimateTestimonialImage(imgtodrag, cart)
               }
           });
@@ -1912,7 +1912,7 @@
               ltn__testimonial_quote_slider.slick('slickGoTo', elIndex);
               var cart = $('.ltn__testimonial-slider-4 .slick-slide[data-slick-index="' + elIndex + '"]').find('.ltn__testimonial-image');
               var imgtodrag = el.find("img").eq(0);
-              if (imgtodrag) {
+              if (imgtodrag.length) {
                   AnimateTestimonialImage(imgtodrag, cart)
               }
   

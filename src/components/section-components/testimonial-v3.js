@@ -2,6 +2,8 @@ import * as React from "react"
 import { imgUrl } from "../../utils";
 import { useStaticQuery, graphql } from "gatsby";
 import ReactStarsRating from 'react-awesome-stars-rating';
+import Avatar from 'react-avatar';
+import DateTimeAgo from "../../utils/datetimeago";
 function TestimonialV3(props) {
 	const qryData = useStaticQuery(graphql`
       query ClientFeedbackData {
@@ -46,16 +48,18 @@ function TestimonialV3(props) {
 										</div>
 										<div className="ltn__testimonial-image">
 											{
-												feedback?.Image &&
+												feedback?.Image ?
 													<img src={imgUrl(feedback?.Image)} alt="Quote image" />
-													
+													:
+													<><Avatar name={feedback?.Name} size="60" round={true} /></>
+
 											}
 										</div>
 										<div className="ltn__testimonial-info">
 											<p>{feedback?.Review}</p>
 											<h4>{feedback?.Name}</h4>
-											<h6></h6>
-											<ReactStarsRating value={feedback?.Star} />;
+											<h6><DateTimeAgo datetime={feedback?.Posted_At} /></h6>
+											<ReactStarsRating value={feedback?.Star} />
 										</div>
 									</div>
 								))
@@ -64,9 +68,14 @@ function TestimonialV3(props) {
 						<ul className="ltn__testimonial-quote-menu d-none d-lg-block">
 							{ClientFeedbackData &&
 								ClientFeedbackData.map((feedback) => (
-									feedback?.Image &&
-										<li><img src={imgUrl(feedback?.Image)} alt="Quote image" /></li>
-										
+									<li>
+										{
+											feedback?.Image ?
+												<img src={imgUrl(feedback?.Image)} alt="Quote image" />
+												:
+												<Avatar name={feedback?.Name} size="60" round={true} />
+										}
+									</li>
 								))
 							}
 						</ul>
