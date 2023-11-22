@@ -81,7 +81,7 @@ const IndexPage = () => {
                   <PropertyLocation title={module?.Name} />
                 }
                 {module && module?.Collection_Name === "Latest_Property" &&
-                  <FeaturedItem />
+                  <FeaturedItem title={module?.Name} />
                 }
                 {module && module?.Collection_Name === "Video_Banners" &&
                   <VideoBanner Video={HomeArticleData?.Video_Banners} />

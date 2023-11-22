@@ -9,7 +9,7 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { useState, useEffect } from "react";
 import { importScript } from "../utils"
-import Header from "./header";
+import Header2 from "./header2";
 import Footer from "./footer";
 import { Helmet } from "react-helmet";
 import jquery from 'jquery';
@@ -17,7 +17,7 @@ import jquery from 'jquery';
 
 const Layout = ({ children }) => {
   const qryData = useStaticQuery(graphql`
-      query SiteConfig{
+      query SiteConfig2{
         strapiSiteConfiguration(Name: {eq: "FBP_Dev"}) {
           id
           Address
@@ -33,6 +33,11 @@ const Layout = ({ children }) => {
             Separator
           }
           Logo {
+            file {
+              publicURL
+            }
+          }
+          Logo2 {
             file {
               publicURL
             }
@@ -109,7 +114,7 @@ const Layout = ({ children }) => {
   }, [siteConfig, menuData]);
   return (
     <>
-      <Header siteConfig={siteConfig} menuLists={menuLists} />
+      <Header2 siteConfig={siteConfig} menuLists={menuLists} />
       <div class="quarter-overlay">
         <div class="cv-spinner">
           <span class="spinner"></span>

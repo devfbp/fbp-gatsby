@@ -27,6 +27,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-apollo',
+      options: {
+        uri: `${process.env.GATSBY_STRAPI_SITE_URL}/graphql`,
+        token: process.env.GATSBY_STRAPI_ACCESS_TOKEN,
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -57,7 +64,8 @@ module.exports = {
           'builder',
           'client-feedback',
           'blog',
-          'blog-tag'
+          'blog-tag',
+          'property-status'
         ],
         singleTypes: ['site-configuration','contact-module'],
         // Extract images from markdown / richtext fields.

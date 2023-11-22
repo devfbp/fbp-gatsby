@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby";
 import ReactHtmlParser from 'react-html-parser';
+import { imgUrl } from "../../utils";
 function PropertyType(props) {
 
 	const qryData = useStaticQuery(graphql`
@@ -12,7 +13,7 @@ function PropertyType(props) {
             Image {
               file {
                 childImageSharp {
-                  gatsbyImageData(width: 286, height: 320)
+                  gatsbyImageData(width: 200, height: 140)
                 }
               }
             }
@@ -40,7 +41,7 @@ function PropertyType(props) {
 						<><div className="col-lg-3 col-sm-6 col-12">
 							<div className="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
 								<div className="ltn__feature-icon">
-									<img src={PublicUrl+"assets/img/icons/icon-img/21.png"} alt="#" />
+									<img src={imgUrl(ptype?.Image)} alt="#" />
 								</div>
 								<div className="ltn__feature-info">
 									<h3><a href="/service-details">{ptype?.Name}</a></h3>

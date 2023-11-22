@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { imgUrl } from "../../utils";
 import { useStaticQuery, graphql } from "gatsby";
+import DateTimeAgo from "../../utils/datetimeago";
 function BlogSlider(props) {
 	const qryData = useStaticQuery(graphql`
       query BlogData {
@@ -75,7 +76,7 @@ function BlogSlider(props) {
 										<div className="ltn__blog-meta-btn">
 											<div className="ltn__blog-meta">
 												<ul>
-													<li className="ltn__blog-date"><i className="far fa-calendar-alt" /></li>
+													<li className="ltn__blog-date"><i className="far fa-calendar-alt" /><DateTimeAgo datetime={blog?.Posted_At} /></li>
 												</ul>
 											</div>
 											<div className="ltn__blog-btn">

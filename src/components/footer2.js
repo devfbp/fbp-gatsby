@@ -15,7 +15,7 @@ const Footer_v1 = (props) => {
       //$(".quarter-overlay").fadeIn(1);
       $(window).scrollTop(0);
       setTimeout(function () {
-        importScript(process.env.GATSBY_SITE_URL+"/assets/js/main.js");
+        importScript(process.env.+"/assets/js/main.js");
         //$(".quarter-overlay").fadeOut(300);
       }, 300);
 
