@@ -15,7 +15,7 @@ const Footer_v1 = (props) => {
       //$(".quarter-overlay").fadeIn(1);
       $(window).scrollTop(0);
       setTimeout(function () {
-        importScript(process.env.GATSBY_SITE_URL+"/assets/js/main.js");
+        importScript(process.env.GATSBY_JS_SRC+"/assets/js/main.js");
         //$(".quarter-overlay").fadeOut(300);
       }, 300);
 
@@ -40,7 +40,7 @@ const Footer_v1 = (props) => {
   let imgattr = "Footer logo";
 
   return (
-    <><footer className="ltn__footer-area  ">
+    <><footer className="ltn__footer-area">
       <div className="footer-top-area  section-bg-2 plr--5">
         <div className="container-fluid">
           <div className="row">

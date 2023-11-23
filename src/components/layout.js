@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
   var menuData = qryData?.allStrapiMenu?.nodes;
   //console.log("log:",menuData)
   useEffect(() => {
-    importScript(process.env.GATSBY_SITE_URL+"/assets/js/plugins.js")
+    importScript(process.env.GATSBY_JS_SRC+"/assets/js/plugins.js")
     if (siteConfig) {
       if (siteConfig?.Name) {
         //setSiteName(siteConfig?.Name);

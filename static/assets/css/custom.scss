@@ -1,0 +1,75 @@
+#sticky-form {
+    top: 0;
+    background-color: var(--ltn__secondary-color);
+    padding: 10px;
+    text-align: center;
+
+    .form-field {
+        height: 40px !important;
+        margin-bottom: 15px;
+        width: 90%;
+    }
+
+    .form-title {
+        color: #ffffff;
+        text-align: center;
+        line-height: 10px;
+        padding-top: 10px;
+        font-weight: 600;
+
+        .pname {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 40px;
+        }
+    }
+
+    .ltn__widget-title,
+    .input-info-save {
+        color: #ffffff !important;
+    }
+
+    .ltn__widget-title-border-2 {
+        border-color: #ffffff !important;
+    }
+
+    .theme-btn-5 {
+        background-color: #ffffff;
+        padding: 10px;
+        width: 90%;
+    }
+
+    .whatsapp-btn {
+        padding: 0px;
+        width: 50%;
+    }
+
+    .whatsapp-btn:hover {
+        background-color: var(--ltn__secondary-color);
+    }
+
+}
+
+#property_details {
+    .box-shadow-1 {
+        padding: 10px;
+
+        li {
+            margin-top: 1px !important;
+        }
+    }
+
+    .enquiry-btn {
+        text-align: center;
+        padding: 20px;
+        .whatsapp-btn {
+            background-color: var(--ltn__secondary-color);
+            padding: 10px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 800;
+
+        }
+    }
+
+}

@@ -1529,7 +1529,48 @@
               ]
           });
   
-  
+          $('.ltn__image-slider-6-active').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.ltn__image-slider-6-active-nav'
+          });
+          $('.ltn__image-slider-6-active-nav').slick({
+            slidesToShow: 6,
+            slidesToScroll: 2,
+            asNavFor: '.ltn__image-slider-6-active',
+            dots: true,
+            centerMode: false,
+            focusOnSelect: true,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                  nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+                  responsive: [
+                      {
+                          breakpoint: 992,
+                          settings: {
+                              slidesToShow: 4,
+                              slidesToScroll: 1
+                          }
+                      },
+                      {
+                          breakpoint: 768,
+                          settings: {
+                              slidesToShow: 3,
+                              slidesToScroll: 1,
+                              arrows: false,
+                          }
+                      },
+                      {
+                          breakpoint: 580,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1,
+                              centerMode: true
+                          }
+                      }
+                  ]
+          });
           /* --------------------------------------------------------
               27. Brand Logo
           --------------------------------------------------------- */
@@ -1961,12 +2002,19 @@
       /* --------------------------------------------------------
           36. Header menu sticky
       -------------------------------------------------------- */
-      $(window).on('scroll',function() {    
+      $(window).on('scroll',function() {
+          var scrollHeight = parseFloat($(document).height());
           var scroll = $(window).scrollTop();
+          var page_wrapper = parseFloat($("#quarter").height()) - 650;
           if (scroll < 445) {
               $(".ltn__header-sticky").removeClass("sticky-active");
+              $(".sticky-form-class").css({'position':'relative','top':'0','width':'100%'});
           } else {
               $(".ltn__header-sticky").addClass("sticky-active");
+              $(".sticky-form-class").css({'position':'fixed','top':'20%','width':'28%'});
+          }
+          if(scroll>=page_wrapper) {              
+              $(".sticky-form-class").css({'position':'relative','top':'0','width':'100%'});
           }
       }); 
   

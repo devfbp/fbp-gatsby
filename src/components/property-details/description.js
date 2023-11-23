@@ -5,8 +5,10 @@ const ProductDesc = (props) => {
     let desc = props?.desc;
     return (
         <>
-            <h4 className="title-2">{props?.title}</h4>
-            {ReactHtmlParser(desc)}
+            <div className="box-shadow-1 ">
+                <h4 className="title-2">{props?.title}</h4>
+                {ReactHtmlParser(desc)}
+            </div>
         </>
     )
 }

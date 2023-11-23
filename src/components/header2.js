@@ -3,6 +3,7 @@ import '../../static/assets/css/font-icons.css'
 import '../../static/assets/css/plugins.css'
 import '../../static/assets/css/style.css'
 import '../../static/assets/css/responsive.css'
+import '../../static/assets/css/custom.scss'
 import Social from '../components/section-components/social';
 import { imgPublicUrl } from "../utils";
 import HeaderMenu from './header-menu';
