@@ -8,6 +8,7 @@ function BlogSlider(props) {
         allStrapiBlog(sort: {Posted_At: DESC}) {
 			nodes {
 			  Title
+			  Slug
 			  Description
 			  Posted_At
 			  Image {
@@ -48,7 +49,7 @@ function BlogSlider(props) {
 							<div className="col-lg-12">
 								<div className="ltn__blog-item ltn__blog-item-3">
 									<div className="ltn__blog-img">
-										<a href="/blog-details"><img src={imgUrl(blog.Image)} alt="#" /></a>
+										<a href={`news/${blog.Slug}`}><img src={imgUrl(blog.Image)} alt="#" /></a>
 									</div>
 									<div className="ltn__blog-brief">
 										<div className="ltn__blog-meta">

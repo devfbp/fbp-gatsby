@@ -75,13 +75,14 @@ const IndexPage = () => {
                   <SearchForm />
                 }
                 {module && module?.Collection_Name === "Property_Type" &&
-                  <PropertyType customClass="ltn__feature-area section-bg-1--- pt-115 pb-90 mb-120---" />
+                  <PropertyType customClass="ltn__feature-area section-bg-1 pt-120 pb-90 mb-120---" />
+                }
+                
+                {module && module?.Collection_Name === "Latest_Property" &&
+                  <FeaturedItem title={module?.Name} />
                 }
                 {module && module?.Collection_Name === "Area" &&
                   <PropertyLocation title={module?.Name} />
-                }
-                {module && module?.Collection_Name === "Latest_Property" &&
-                  <FeaturedItem title={module?.Name} />
                 }
                 {module && module?.Collection_Name === "Video_Banners" &&
                   <VideoBanner Video={HomeArticleData?.Video_Banners} />

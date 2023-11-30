@@ -1,11 +1,36 @@
 import * as React from "react"
 import Noimage from '../images/no_image.png'
 import ReactHtmlParser from 'react-html-parser';
+import * as qs from "query-string"
 
 const imgUrl = (value) => {
     if (value) {
         //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
         return value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src;
+    }
+    return Noimage;
+}
+
+const imgUrl2 = (value) => {
+
+    if (value) {
+        if(value?.data?.attributes?.formats?.medium?.url){
+            return value?.data?.attributes?.formats?.medium?.url;
+        }
+        else if(value?.data?.attributes?.formats?.small?.url){
+            return value?.data?.attributes?.formats?.small?.url;
+        }
+        else{
+            return value?.data?.attributes?.url;
+        }
+    }
+    return Noimage;
+}
+
+const imgUrl3 = (value) => {
+    if (value) {
+        //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
+        return value?.data?.attributes?.formats?.thumbnail?.url;
     }
     return Noimage;
 }
@@ -52,9 +77,22 @@ const priceString = (numbers) => {
 
 const subStr = (str) => {
     if (str) {
-        str = str.substring(0,60)+"...";
+        str = str.substring(0, 60) + "...";
     }
     return ReactHtmlParser(str);
 }
 
-export { numberFormat, rupeeFormat, imgUrl, imgPublicUrl, importScript, priceString, subStr}
+const SendMail = postData => {
+    console.log(postData)
+    return window.fetch(`${process.env.GATSBY_STRAPI_SITE_URL}/sendemail`, {
+        method: `POST`,
+        mode: "no-cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: qs.stringify(postData),
+    })
+}
+
+export { numberFormat, rupeeFormat, imgUrl, imgUrl2, imgUrl3, imgPublicUrl, importScript, priceString, subStr, SendMail }

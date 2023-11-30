@@ -25,7 +25,7 @@ const ProductFloorPlans = (props) => {
                     <div className="tab-content">
                         {floorplans &&
                             floorplans.map((floorplan, index) => (
-                                <div className="tab-pane fade" id={"liton_tab_3_" + index}>
+                                <div id={"liton_tab_3_" + index}  className={index == 0 ? 'tab-pane fade active show' : 'tab-pane fade'} >
                                     <div className="ltn__apartments-tab-content-inner">
                                         <div className="row">
                                             <div className="col-lg-12">

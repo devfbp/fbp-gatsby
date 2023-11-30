@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { imgUrl } from "../../utils";
 function PropertyLocation(props) {
 	const qryData = useStaticQuery(graphql`
-      query PropertyLocation2 {
+      query PropertyLocation {
 		allStrapiPropertyLocation(sort: {Sort: ASC}) {
 			nodes {
 			  Description
@@ -16,6 +16,7 @@ function PropertyLocation(props) {
 			  }
 			  Name
 			  State
+			  Slug
 			}
 		  }
       	}
@@ -39,7 +40,7 @@ function PropertyLocation(props) {
 							<div className="col-lg-4">
 								<div className="ltn__search-by-place-item">
 									<div className="search-by-place-img">
-										<a href="/product-details"><img src={imgUrl(location.Image)} alt="#" /></a>
+										<a href={"/property-location/"+location.Slug}><img src={imgUrl(location.Image)} alt="#" /></a>
 										<div className="search-by-place-badge">
 											<ul>
 												<li>2 Properties</li>
@@ -47,10 +48,10 @@ function PropertyLocation(props) {
 										</div>
 									</div>
 									<div className="search-by-place-info">
-										<h6><a href="/contact">{location.State}</a></h6>
-										<h4><a href="/product-details">{location.Name}</a></h4>
+										<h6><a>{location.State}</a></h6>
+										<h4><a>{location.Name}</a></h4>
 										<div className="search-by-place-btn">
-											<a href="/product-details">View Property <i className="flaticon-right-arrow" /></a>
+											<a href={"/property-location/"+location.Slug}>View Property <i className="flaticon-right-arrow" /></a>
 										</div>
 									</div>
 								</div>
