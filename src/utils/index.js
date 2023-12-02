@@ -11,6 +11,14 @@ const imgUrl = (value) => {
     return Noimage;
 }
 
+const imgUrl2 = (value) => {
+
+    if (value?.data?.attributes?.url) {
+        return value?.data?.attributes?.url;
+    }
+    return Noimage;
+}
+
 const mediumImg = (value) => {
 
     if (value?.data?.attributes?.formats?.medium?.url) {
@@ -19,7 +27,7 @@ const mediumImg = (value) => {
     return Noimage;
 }
 const smallImg = (value) => {
-
+    //console.log("smallImg",value)
     if (value?.data?.attributes?.formats?.small?.url) {
         return value?.data?.attributes?.formats?.small?.url;
     }
@@ -55,7 +63,10 @@ const rupeeFormat = (numbers) => {
     if (numbers) {
         convertedNF = numbers;
     }
-    return "₹ " + convertedNF.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return "₹ " + convertedNF.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " /-";
+}
+const rupeeFormatStr = (numbers) => {
+    return "₹ " + numbers;
 }
 
 const importScript = (src) => {
@@ -94,4 +105,4 @@ const SendMail = postData => {
     })
 }
 
-export { numberFormat, rupeeFormat, imgUrl, mediumImg, smallImg, thumbnailImg, imgPublicUrl, importScript, priceString, subStr, SendMail }
+export { numberFormat, rupeeFormat, imgUrl, rupeeFormatStr, imgUrl2, mediumImg, smallImg, thumbnailImg, imgPublicUrl, importScript, priceString, subStr, SendMail }

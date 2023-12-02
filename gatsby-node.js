@@ -11,6 +11,7 @@ const path = require("path")
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
   const PropertyTemplate = path.resolve("./src/templates/property-details.js");
+  const PropertyResult = path.resolve("./src/templates/property-results.js");
   const NewsDetailsTemplate = path.resolve("./src/templates/news-details.js");
   const PropertyLocationDetails = path.resolve("./src/templates/property-location-details.js");
   createPage({
@@ -23,6 +24,11 @@ exports.createPages = async ({ actions }) => {
     path: "/product-details",
     matchPath: "/product-details/:property_id",
     component: PropertyTemplate,
+  })
+  createPage({
+    path: "/product-results",
+    matchPath: "/product-results/",
+    component: PropertyResult,
   })
   createPage({
     path: "/news",

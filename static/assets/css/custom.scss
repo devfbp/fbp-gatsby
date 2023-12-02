@@ -62,6 +62,7 @@
     .enquiry-btn {
         text-align: center;
         padding: 20px;
+
         .whatsapp-btn {
             background-color: var(--ltn__secondary-color);
             padding: 10px;
@@ -72,4 +73,19 @@
         }
     }
 
+}
+
+.btn-sml {
+    list-style: none;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: var(--ltn__secondary-color);
+    color: var(--white);
+    padding: 3px 15px 0px;
+    text-transform: uppercase;
+    line-height: 25px;
+}
+.table-responsive {
+    text-align: center;
 }

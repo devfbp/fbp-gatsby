@@ -9,7 +9,7 @@ import PropertyLocation from '../components/section-components/propperty-locatio
 import FeaturedItem from '../components/section-components/featured-item-v1';
 import VideoBanner from '../components/section-components/video-banner';
 import Testimonial from '../components/section-components/testimonial-v3';
-import Sponsor from '../components/section-components/sponsor-v1';
+import BuilderSlider from '../components/section-components/builder-slider';
 import BlogSlider from '../components/blog-components/blog-slider-v1';
 import CallToActionV1 from '../components/section-components/call-to-action-v1';
 
@@ -91,7 +91,7 @@ const IndexPage = () => {
                   <Testimonial title={module?.Name} />
                 }
                 {module && module?.Collection_Name === "Builder" &&
-                  <Sponsor />
+                  <BuilderSlider />
                 }
                 {module && module?.Collection_Name === "News" &&
                   <BlogSlider sectionClass="pt-120" title={module?.Name} />

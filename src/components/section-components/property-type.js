@@ -5,7 +5,7 @@ import { imgUrl } from "../../utils";
 function PropertyType(props) {
 
 	const qryData = useStaticQuery(graphql`
-      query PropertyTypeData {
+      query PropertyTypeData2 {
         allStrapiPropertyType(sort: {Sort: ASC}) {
           nodes {
             Description

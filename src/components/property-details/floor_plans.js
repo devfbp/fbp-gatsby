@@ -5,6 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ProductFloorPlans = (props) => {
     let floorplans = props?.floorplans;
+    let unit_types = props?.unit_types;
     console.log(floorplans);
     return (
         <>
@@ -26,7 +27,7 @@ const ProductFloorPlans = (props) => {
                     <div className="tab-content">
                         {floorplans &&
                             floorplans.map((floorplan, index) => (
-                                <div id={"liton_tab_3_" + index}  className={index == 0 ? 'tab-pane fade active show' : 'tab-pane fade'} >
+                                <div id={"liton_tab_3_" + index} className={index == 0 ? 'tab-pane fade active show' : 'tab-pane fade'} >
                                     <div className="ltn__apartments-tab-content-inner">
                                         <div className="row">
                                             <div className="col-lg-12">
@@ -48,6 +49,39 @@ const ProductFloorPlans = (props) => {
                                 </div>
                             ))
                         }
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="table-responsive">
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0" className="table table-bordered table-striped tbl1">
+                                    <tbody>
+                                        <tr>
+                                            <th width="20%" className="text-center"><strong>Unit Type</strong></th>
+                                            <th width="20%" className="text-center"><strong>Saleable Area</strong></th>
+                                            <th width="20%" className="text-center"><strong>RERA Carpet Area</strong></th>
+                                            <th width="20%" className="text-center"><strong>Price</strong></th>
+                                            <th width="20%" className="text-center"><strong>Floor Plans</strong></th>
+                                        </tr>
+                                        {unit_types &&
+                                            <>
+                                                {unit_types.map((unittype, index) => (
+                                                    <>
+                                                        <tr>
+                                                            <td>{unittype?.Unit_Type}</td>
+                                                            <td>{unittype?.Saleable_Area}</td>
+                                                            <td>{unittype?.RERA_Carpet_Area}</td>
+                                                            <td><a href="#" className="btn-sml">Call Me</a></td>
+                                                            <td><a className="btn-sml" href={process.env.GATSBY_STRAPI_IMAGE_URL + mediumImg(unittype?.Image)} data-rel="lightcase:myCollection">{"View"}</a></td>
+                                                        </tr>
+                                                    </>
+                                                ))}
+                                            </>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,10 @@ import FloorPlan from "../components/property-details/floor_plans"
 import Video from "../components/property-details/video"
 import EnquiryForm from "../components/property-details/enquiry_form"
 import RelatedProperty from "../components/property-details/related_property"
-import EnquiryButton from "../components/property-details/enquiry_button"
+import GooglMap from "../components/property-details/map"
+import Advantages from "../components/property-details/advantages"
+import Downloads from "../components/property-details/downloads"
+import Builder from "../components/property-details/builder"
 import $ from 'jquery';
 
 const PropertyDetailsTemplate = () => {
@@ -20,7 +23,7 @@ const PropertyDetailsTemplate = () => {
   const spliturl = pageurl.split("/");
   const property_id = spliturl[(spliturl.length) - 2];
   const { loading, error, data } = useQuery(PROPERTY_DETAILS, {
-    variables: { id: property_id },
+    variables: { Property_Id: property_id },
   });
   if (loading) {
     return <></>
@@ -53,26 +56,27 @@ const PropertyDetailsTemplate = () => {
                     </div>
 
                     <label><span className="ltn__secondary-color"><i className="flaticon-pin" /></span> {propertyDetail?.Area?.data?.attributes?.Name}, {propertyDetail?.Area?.data?.attributes?.Location?.data?.attributes?.Name}</label>
-                    <Slider images={propertyDetail?.Images} />
+                    <Slider images={propertyDetail?.Images} main_image={propertyDetail?.Main_Image} />
 
                     <Detail detail={propertyDetail} title={"Property Detail"} />
 
                     <Description desc={propertyDetail?.Description} title={"Property Description"} />
 
-                    <FloorPlan floorplans={propertyDetail?.Floor_Plans} title={"Floor Plans"} />
+                    <FloorPlan floorplans={propertyDetail?.Floor_Plans} unit_types={propertyDetail?.Unit_Types} title={"Floor Plans"} />
+
+                    <Advantages advantages={propertyDetail?.Advantages} title={propertyDetail?.Advantages?.Name} />
+
+                    <Downloads downloads={propertyDetail?.Downloads} title={"Downloads"} />
 
                     <Features features={propertyDetail?.Features} title={"Features"} />
-
-                    <Video video={propertyDetail?.Video} title={"Video"} mimage={propertyDetail?.Main_Image} />
-
+                    {propertyDetail?.Video?.length > 0 &&
+                      <Video video={propertyDetail?.Video} title={"Video"} mimage={propertyDetail?.Main_Image} />
+                    }
                     <Amenities amenities={propertyDetail?.Amenities} title={"Amenities"} />
+                    <GooglMap />
 
-                    <div className="box-shadow-1">
-                      <h4 className="title-2">Location</h4>
-                      <div className="property-details-google-map mb-60">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9334.271551495209!2d-73.97198251485975!3d40.668170674982946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b0456b5a2e7%3A0x68bdf865dda0b669!2sBrooklyn%20Botanic%20Garden%20Shop!5e0!3m2!1sen!2sbd!4v1590597267201!5m2!1sen!2sbd" width="100%" height="100%" frameBorder={0} allowFullScreen aria-hidden="false" tabIndex={0} />
-                      </div>
-                    </div> <RelatedProperty />
+                    <Builder builder={propertyDetail?.Builder} title={"Builder"} />
+                    <RelatedProperty />
                   </div>
                 </div>
                 <div className="col-lg-4">
@@ -100,8 +104,8 @@ const PropertyDetailsTemplate = () => {
 
 
 const PROPERTY_DETAILS = gql`
-query PropertyDetails {
-  properties (filters:{Property_Id:{eq:"akshaya-tango-21"}}) {
+query PropertyDetails ($Property_Id: String!){
+  properties (filters:{Property_Id:{eq:$Property_Id}}) {
     data {
       id 
       attributes {
@@ -218,6 +222,11 @@ query PropertyDetails {
               Name
             }
           }
+        }
+        Advantages {
+          Description
+          Name
+          
         }
       }
     }
