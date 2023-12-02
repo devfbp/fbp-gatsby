@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { imgUrl2 } from '../../utils';
+import { mediumImg } from '../../utils';
 
 function BlogGrid(props) {
 	console.log("props=>",props?.newslists);
@@ -18,7 +18,7 @@ function BlogGrid(props) {
 							<div className="col-lg-4 col-sm-6 col-12">
 								<div className="ltn__blog-item ltn__blog-item-3">
 									<div className="ltn__blog-img">
-									<a href={blog?.attributes?.Slug}><img src={PublicUrl+imgUrl2(blog?.attributes?.Image)} alt={'blog-'+ imagealt} /></a>
+									<a href={blog?.attributes?.Slug}><img src={PublicUrl+mediumImg(blog?.attributes?.Image)} alt={'blog-'+ imagealt} /></a>
 									</div>
 									<div className="ltn__blog-brief">
 									<div className="ltn__blog-meta">

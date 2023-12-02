@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import { importScript } from "../utils"
 import Header from "./header";
 import Footer from "./footer";
+import PopupContact from "./popup-contact";
 import { Helmet } from "react-helmet";
 import jquery from 'jquery';
 //import 'bootstrap/dist/css/bootstrap.min.css';
@@ -118,6 +119,7 @@ const Layout = ({ children }) => {
       <div class="page-wrapper">
         <div id="quarter">{children}</div>
       </div>
+      <PopupContact />
       <Footer siteConfig={siteConfig} menuLists={menuLists} />
     </>
   )

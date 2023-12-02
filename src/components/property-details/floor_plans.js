@@ -1,5 +1,6 @@
 import * as React from "react"
 import ReactHtmlParser from 'react-html-parser';
+import { mediumImg, smallImg } from '../../utils';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ProductFloorPlans = (props) => {
@@ -33,7 +34,7 @@ const ProductFloorPlans = (props) => {
                                                     <LazyLoadImage
                                                         alt={"property_" + index}
                                                         height={"450px"}
-                                                        src={process.env.GATSBY_STRAPI_IMAGE_URL + floorplan?.Image?.data?.attributes?.url} // use normal <img> attributes as props
+                                                        src={process.env.GATSBY_STRAPI_IMAGE_URL + mediumImg(floorplan?.Image)} // use normal <img> attributes as props
                                                         width={"1904px"} />
                                                     <p>Enimad minim veniam quis nostrud exercitation ullamco laboris.
                                                         Lorem ipsum dolor sit amet cons aetetur adipisicing elit sedo

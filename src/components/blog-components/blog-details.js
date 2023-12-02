@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { imgUrl2, imgUrl3 } from '../../utils';
+import { mediumImg, thumbnailImg } from '../../utils';
 import ReactHtmlParser from 'react-html-parser';
 import Comments from './comments';
 import Sidebar from './sidebar';
@@ -15,11 +15,11 @@ function BlogDetails(props) {
 					<div className="col-lg-8">
 						<div className="ltn__blog-details-wrap">
 							<div className="ltn__page-details-inner ltn__blog-details-inner">
-								
+
 								<div className="ltn__blog-meta">
 									<ul>
 										<li className="ltn__blog-author go-top">
-											<a href="/team-details"><img src={PublicUrl + imgUrl3(props?.newsdetail?.Image)} alt="#" />By: Ethan</a>
+											<a href="/team-details"><img src={PublicUrl + mediumImg(props?.newsdetail?.Image)} alt="#" />By: Ethan</a>
 										</li>
 										<li className="ltn__blog-date">
 											<i className="far fa-calendar-alt" />June 22, 2020
@@ -39,7 +39,7 @@ function BlogDetails(props) {
 									</ul>
 								</div>
 								<p>{ReactHtmlParser(props?.newsdetail?.Description)}</p>
-								<img style={{ width: '100%' }} src={PublicUrl + imgUrl2(props?.newsdetail?.Image)} alt="Image" />
+								<img style={{ width: '100%' }} src={PublicUrl + mediumImg(props?.newsdetail?.Image)} alt="Image" />
 								<blockquote>
 									<h6 className="ltn__secondary-color mt-0">BY HETMAYAR</h6>
 									Viral dreamcatcher keytar typewriter, aest hetic offal umami. Aesthetic polaroid pug pitchfork post-ironic.
@@ -47,11 +47,11 @@ function BlogDetails(props) {
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur expedita velit laboriosam est sint laborum eos assumenda, quam voluptatem adipisci, reprehenderit ut nobis blanditiis perspiciatis!</p>
 								<div className="row">
 									<div className="col-lg-6">
-										<img src={PublicUrl + imgUrl2(props?.newsdetail?.Image)} alt="Image" />
+										<img src={PublicUrl + mediumImg(props?.newsdetail?.Image)} alt="Image" />
 										<label>Image Caption Here</label>
 									</div>
 									<div className="col-lg-6">
-										<img src={PublicUrl + imgUrl2(props?.newsdetail?.Image)} alt="Image" />
+										<img src={PublicUrl + mediumImg(props?.newsdetail?.Image)} alt="Image" />
 									</div>
 								</div>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, amet, fuga omnis eligendi sed cupiditate molestias enim autem animi est tempore ipsa corporis. Recusandae, quia.</p>

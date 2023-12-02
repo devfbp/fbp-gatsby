@@ -67,7 +67,11 @@ module.exports = {
           'blog-tag',
           'property-status'
         ],
-        singleTypes: ['site-configuration','contact-module'],
+        singleTypes: [
+          'site-configuration',
+          'contact-module',
+          'popup-contact'  
+        ],
         // Extract images from markdown / richtext fields.
         inlineImages: {
           typesToParse: {

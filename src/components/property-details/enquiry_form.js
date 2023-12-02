@@ -13,8 +13,12 @@ const EnquiryForm = (props) => {
         }
     }, [isMobile]);
 
-    const [data, setData] = useState({})
-   
+    const [data, setData] = useState({
+        "template_name": "Propery_Enquiry",
+        "propert_link": "http://localhost:8000/product-details/akshaya-tango-21/",
+        "subject_suffix": fdata?.Name
+    })
+
     const updateData = e => {
         setData({
             ...data,
@@ -22,12 +26,8 @@ const EnquiryForm = (props) => {
         })
     }
     const onSubmit = async e => {
-        setData({
-            ...data,
-            ["template_name"]: "Propery_Enquiry"
-        })
         e.preventDefault()
-        console.log(data)
+        //console.log(data)
         await SendMail(data);
         return false;
     }

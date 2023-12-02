@@ -2,6 +2,7 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby";
 import { imgUrl, priceString, subStr } from "../../utils";
 function FeaturedItemV1(props) {
+	let publicUrl = process.env.PUBLIC_URL+'/'
 	const qryData = useStaticQuery(graphql`
       query LatestProperty {
         allStrapiProperty(sort: {Posted_At: DESC}, limit: 4) {
@@ -409,7 +410,7 @@ function FeaturedItemV1(props) {
 						}
 					</div>
 				</div>
-			</div>
+			</div>			
 		</>
 	)
 }

@@ -11,23 +11,22 @@ const imgUrl = (value) => {
     return Noimage;
 }
 
-const imgUrl2 = (value) => {
+const mediumImg = (value) => {
 
-    if (value) {
-        if(value?.data?.attributes?.formats?.medium?.url){
-            return value?.data?.attributes?.formats?.medium?.url;
-        }
-        else if(value?.data?.attributes?.formats?.small?.url){
-            return value?.data?.attributes?.formats?.small?.url;
-        }
-        else{
-            return value?.data?.attributes?.url;
-        }
+    if (value?.data?.attributes?.formats?.medium?.url) {
+        return value?.data?.attributes?.formats?.medium?.url;
+    }
+    return Noimage;
+}
+const smallImg = (value) => {
+
+    if (value?.data?.attributes?.formats?.small?.url) {
+        return value?.data?.attributes?.formats?.small?.url;
     }
     return Noimage;
 }
 
-const imgUrl3 = (value) => {
+const thumbnailImg = (value) => {
     if (value) {
         //console.log("log:",value?.file?.childImageSharp.gatsbyImageData?.images?.fallback?.src)
         return value?.data?.attributes?.formats?.thumbnail?.url;
@@ -84,7 +83,7 @@ const subStr = (str) => {
 
 const SendMail = postData => {
     console.log(postData)
-    return window.fetch(`${process.env.GATSBY_STRAPI_SITE_URL}/sendemail`, {
+    return window.fetch(`${process.env.GATSBY_STRAPI_SITE_URL}/sendemail/property_enquiry`, {
         method: `POST`,
         mode: "no-cors",
         headers: {
@@ -95,4 +94,4 @@ const SendMail = postData => {
     })
 }
 
-export { numberFormat, rupeeFormat, imgUrl, imgUrl2, imgUrl3, imgPublicUrl, importScript, priceString, subStr, SendMail }
+export { numberFormat, rupeeFormat, imgUrl, mediumImg, smallImg, thumbnailImg, imgPublicUrl, importScript, priceString, subStr, SendMail }

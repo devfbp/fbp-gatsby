@@ -126,6 +126,7 @@ query PropertyDetails {
           data {
             attributes {
               url
+              formats
             }
           }
         }
@@ -152,6 +153,7 @@ query PropertyDetails {
                 data {
                   attributes {
                     url
+                    formats
                   }
                 }
               }
@@ -174,6 +176,7 @@ query PropertyDetails {
             data {
               attributes {
                 url
+                formats
               }
             }
           }
@@ -182,6 +185,7 @@ query PropertyDetails {
           data {
             attributes {
               url
+              formats
             }
           }
         }
@@ -198,6 +202,7 @@ query PropertyDetails {
             data {
               attributes {
                 url
+                formats
               }
             }
           }

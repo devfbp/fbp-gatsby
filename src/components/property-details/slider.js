@@ -11,11 +11,11 @@ const ProductSlider = (props) => {
                         Images.map((img, index) => (
                             <div className="col-lg-12">
                                 <div className="ltn__img-slide-item-4">
-                                    <a href={process.env.GATSBY_STRAPI_IMAGE_URL + img?.attributes?.url} data-rel="lightcase:myCollection">
+                                    <a href={process.env.GATSBY_STRAPI_IMAGE_URL + img?.attributes?.formats?.large?.url} data-rel="lightcase:myCollection">
                                         <LazyLoadImage
                                             alt={"property_" + index}
                                             height={"450px"}
-                                            src={process.env.GATSBY_STRAPI_IMAGE_URL + img?.attributes?.url} // use normal <img> attributes as props
+                                            src={process.env.GATSBY_STRAPI_IMAGE_URL + img?.attributes?.formats?.medium?.url} // use normal <img> attributes as props
                                             width={"1904px"} />
                                     </a>
                                 </div>
@@ -32,7 +32,7 @@ const ProductSlider = (props) => {
                                     <LazyLoadImage
                                         alt={"property_" + index}
                                         height={"100px"}
-                                        src={process.env.GATSBY_STRAPI_IMAGE_URL + img?.attributes?.url} // use normal <img> attributes as props
+                                        src={process.env.GATSBY_STRAPI_IMAGE_URL + img?.attributes?.formats?.thumbnail?.url} // use normal <img> attributes as props
                                         width={"120px"} />
                                 </div>
 

@@ -51,8 +51,8 @@
     jQuery(document).ready(function () {
 
         /* --------------------------------------------------------
-          15. Slider One Active 
-      --------------------------------------------------------- */
+            15. Slider One Active 
+        --------------------------------------------------------- */
         $('.ltn__slide-one-active').slick({
             autoplay: true,
             autoplaySpeed: 10000,
@@ -66,15 +66,13 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    arrows: false,
+                    dots: true,
                 }
-            ]
+            }]
         }).on('afterChange', function () {
             new WOW().init();
         });
@@ -89,8 +87,8 @@
             2. Mobile Menu
         --------------------------------------------------------- */
         /* ---------------------------------
-           Utilize Function 
-       ----------------------------------- */
+             Utilize Function 
+         ----------------------------------- */
         (function () {
             var $ltn__utilizeToggle = $('.ltn__utilize-toggle'),
                 $ltn__utilize = $('.ltn__utilize'),
@@ -209,8 +207,7 @@
                         element.removeClass('open');
                         element.find('li').removeClass('open');
                         element.find('ul').slideUp();
-                    }
-                    else {
+                    } else {
                         element.addClass('open');
                         element.children('ul').slideDown();
                         element.siblings('li').children('ul').slideUp();
@@ -313,28 +310,27 @@
             focusOnSelect: true,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -349,7 +345,9 @@
                 $filterValue = $this.attr('data-filter');
             $ltnGalleryFilterMenu.find('button, a').removeClass('active');
             $this.addClass('active');
-            $ltnGalleryActive.isotope({ filter: $filterValue });
+            $ltnGalleryActive.isotope({
+                filter: $filterValue
+            });
         });
         /*Grid*/
         $ltnGalleryActive.each(function () {
@@ -370,7 +368,8 @@
             14. LightCase jQuery Active
         --------------------------------------------------------- */
         $('a[data-rel^=lightcase]').lightcase({
-            transition: 'elastic', /* none, fade, fadeInline, elastic, scrollTop, scrollRight, scrollBottom, scrollLeft, scrollHorizontal and scrollVertical */
+            transition: 'elastic',
+            /* none, fade, fadeInline, elastic, scrollTop, scrollRight, scrollBottom, scrollLeft, scrollHorizontal and scrollVertical */
             swipe: true,
             maxWidth: 1170,
             maxHeight: 600,
@@ -393,15 +392,13 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    arrows: false,
+                    dots: true,
                 }
-            ]
+            }]
         }).on('afterChange', function () {
             new WOW().init();
         });
@@ -419,8 +416,10 @@
             $('.ltn__slider-11-slide-item-count .total').text('/0' + slick.slideCount);
             new WOW().init();
         }).slick({
-            dots: false, /* slider left or right side pagination count with line */
-            arrows: false, /* slider arrow  */
+            dots: false,
+            /* slider left or right side pagination count with line */
+            arrows: false,
+            /* slider arrow  */
             appendDots: '.ltn__slider-11-pagination-count',
             infinite: true,
             autoplay: false,
@@ -431,43 +430,42 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1600,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 575,
-                    settings: {
-                        arrows: false,
-                        dots: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: false
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    arrows: false,
+                    dots: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -478,41 +476,42 @@
             centerMode: false,
             centerPadding: '0px',
             asNavFor: '.ltn__slider-11-active',
-            dots: false, /* image slide dots */
-            arrows: false, /* image slide arrow */
+            dots: false,
+            /* image slide dots */
+            arrows: false,
+            /* image slide arrow */
             centerMode: true,
             focusOnSelect: true,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1600,
-                    settings: {
-                        arrows: false,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        arrows: true,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: true,
-                        dots: false
-                    }
-                },
-                {
-                    breakpoint: 575,
-                    settings: {
-                        arrows: true,
-                        dots: false,
-                    }
+            responsive: [{
+                breakpoint: 1600,
+                settings: {
+                    arrows: false,
+                    dots: false
                 }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    arrows: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    arrows: true,
+                    dots: false,
+                }
+            }
             ]
         });
 
@@ -528,28 +527,27 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -566,32 +564,31 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -608,34 +605,33 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -652,62 +648,61 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1800,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 1600,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 1400,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 575,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1800,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -724,32 +719,31 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -765,32 +759,31 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -820,41 +813,40 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
         /* --------------------------------------------------------
@@ -869,41 +861,40 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -919,43 +910,42 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 575,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: true
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -971,30 +961,29 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1011,37 +1000,36 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1059,48 +1047,47 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        centerMode: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        centerMode: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    centerMode: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    centerMode: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1118,44 +1105,43 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        centerMode: false,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        centerMode: false,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        centerMode: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    centerMode: false,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    centerMode: false,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    centerMode: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1173,42 +1159,41 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        centerMode: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    centerMode: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1224,50 +1209,49 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 375,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 375,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1286,30 +1270,29 @@
             centerPadding: '0px',
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1328,36 +1311,35 @@
             centerPadding: '80px',
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        centerPadding: '50px'
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        centerPadding: '50px'
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    centerPadding: '50px'
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerPadding: '50px'
+                }
+            }
             ]
         });
 
@@ -1376,34 +1358,33 @@
             centerPadding: '0px',
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1423,41 +1404,40 @@
             centerPadding: '0px',
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
             ]
         });
 
@@ -1476,58 +1456,57 @@
             centerPadding: '450px',
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1600,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        centerMode: true,
-                        centerPadding: '250px',
-                    }
-                },
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        centerMode: true,
-                        centerPadding: '200px',
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        centerMode: true,
-                        centerPadding: '150px',
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        centerMode: false,
-                        centerPadding: '0px',
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        centerMode: false,
-                        centerPadding: '0px',
-                    }
+            responsive: [{
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                    centerPadding: '250px',
                 }
+            },
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                    centerPadding: '200px',
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true,
+                    centerPadding: '150px',
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: false,
+                    centerPadding: '0px',
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: false,
+                    centerPadding: '0px',
+                }
+            }
             ]
         });
 
@@ -1547,8 +1526,46 @@
             focusOnSelect: true,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: true
+                }
+            }
+            ]
+        });
+        /* --------------------------------------------------------
+            27. Brand Logo
+        --------------------------------------------------------- */
+        if ($('.ltn__brand-logo-active').length) {
+            $('.ltn__brand-logo-active').slick({
+                rtl: false,
+                arrows: false,
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+                responsive: [{
                     breakpoint: 992,
                     settings: {
                         slidesToShow: 4,
@@ -1566,50 +1583,10 @@
                 {
                     breakpoint: 580,
                     settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        centerMode: true
+                        slidesToShow: 2,
+                        slidesToScroll: 1
                     }
                 }
-            ]
-        });
-        /* --------------------------------------------------------
-            27. Brand Logo
-        --------------------------------------------------------- */
-        if ($('.ltn__brand-logo-active').length) {
-            $('.ltn__brand-logo-active').slick({
-                rtl: false,
-                arrows: false,
-                dots: false,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-                nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-                responsive: [
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 4,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1,
-                            arrows: false,
-                        }
-                    },
-                    {
-                        breakpoint: 580,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    }
                 ]
             });
         };
@@ -1627,34 +1604,33 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1671,41 +1647,40 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        arrows: false,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    arrows: false,
+                    dots: true
                 }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
             ]
         });
 
@@ -1771,7 +1746,8 @@
                 'display_gallery': true,
                 'styling': false,
                 'items': 12,
-                "image_size": "600", /* 320 */
+                "image_size": "600",
+                /* 320 */
             });
             $('.ltn__instafeed').on("DOMNodeInserted", function (e) {
                 if (e.target.className == 'instagram_gallery') {
@@ -1852,12 +1828,10 @@
             var oldValue = $button.parent().find("input").val();
             if ($button.text() == "+") {
                 var newVal = parseFloat(oldValue) + 1;
-            }
-            else {
+            } else {
                 if (oldValue > 0) {
                     var newVal = parseFloat(oldValue) - 1;
-                }
-                else {
+                } else {
                     newVal = 0;
                 }
             }
@@ -1903,37 +1877,36 @@
             slidesToScroll: 1,
             prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
             nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 992,
-                    settings: {
-                        autoplay: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        dots: true,
-                        arrows: false,
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        autoplay: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        dots: true,
-                        arrows: false,
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        autoplay: false,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        dots: true,
-                        arrows: false,
-                    }
+            responsive: [{
+                breakpoint: 992,
+                settings: {
+                    autoplay: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
                 }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    autoplay: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                    autoplay: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                    arrows: false,
+                }
+            }
             ]
         });
 
@@ -1960,7 +1933,6 @@
             }
 
         });
-
 
 
         function AnimateTestimonialImage(imgtodrag, cart) {
@@ -1994,10 +1966,9 @@
             Newsletter Popup
         -------------------------------------------------------- */
         $('#ltn__newsletter_popup').modal('show');
-
-
-
-
+        setTimeout(function () {
+           $('#popup-contact').modal('show');
+        }, 2000);
     });
 
 
@@ -2010,13 +1981,25 @@
         var page_wrapper = parseFloat($("#quarter").height()) - 650;
         if (scroll < 445) {
             $(".ltn__header-sticky").removeClass("sticky-active");
-            $(".sticky-form-class").css({ 'position': 'relative', 'top': '0', 'width': '100%' });
+            $(".sticky-form-class").css({
+                'position': 'relative',
+                'top': '0',
+                'width': '100%'
+            });
         } else {
             $(".ltn__header-sticky").addClass("sticky-active");
-            $(".sticky-form-class").css({ 'position': 'fixed', 'top': '20%', 'width': '28%' });
+            $(".sticky-form-class").css({
+                'position': 'fixed',
+                'top': '20%',
+                'width': '28%'
+            });
         }
         if (scroll >= page_wrapper) {
-            $(".sticky-form-class").css({ 'position': 'relative', 'top': '0', 'width': '100%' });
+            $(".sticky-form-class").css({
+                'position': 'relative',
+                'top': '0',
+                'width': '100%'
+            });
         }
     });
 
@@ -2033,7 +2016,6 @@
 
 
     });
-
 
 
 })(jQuery);

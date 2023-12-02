@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { imgUrl2 } from '../../utils';
+import { mediumImg } from '../../utils';
 
 function PropertyLocation(props) {
 	let PublicUrl = process.env.GATSBY_STRAPI_SITE_URL
@@ -16,7 +16,7 @@ function PropertyLocation(props) {
 						<div className="ltn__gallery-item-inner">
 							<div className="ltn__gallery-item-img">
 								<a href={"/property-location/"+location?.attributes?.Slug}>
-									<img src={PublicUrl + imgUrl2(location?.attributes?.Image)} style={{height: '250px',width: '100%'}} alt="Image" />
+									<img src={PublicUrl + mediumImg(location?.attributes?.Image)} style={{height: '250px',width: '100%'}} alt="Image" />
 									<span className="ltn__gallery-action-icon">
 										<i className="fas fa-search" />
 									</span>

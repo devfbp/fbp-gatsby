@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { imgUrl2 } from '../../utils';
+import { mediumImg } from '../../utils';
 
 function Banner(props) {
     
@@ -37,7 +37,7 @@ function Banner(props) {
                                         </div>
                                     </div>
                                     <div className="slide-item-img">
-                                        <img src={PublicUrl+imgUrl2(Image)} alt="#" />
+                                        <img src={PublicUrl+mediumImg(Image)} alt="#" />
                                     </div>
                                 </div>
                             </div>

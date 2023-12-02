@@ -1,0 +1,129 @@
+.modal-backdrop.show {
+    opacity: 0.3;
+}
+
+#popup-contact-modal {
+
+    .modal-body {
+        padding: 0px;
+    }
+
+    .modal-product-img {
+        float: left;
+        //width: 100%;
+        //max-width: 125px;
+        //margin-right: 20px;
+    }
+
+    .modal-product-info {
+        overflow: hidden;
+    }
+
+    .added-cart i {
+        color: var(--green);
+    }
+
+    .btn-wrapper {
+        margin-top: 20px;
+    }
+
+    .btn-wrapper .btn {
+        padding: 5px 20px;
+        margin-right: 10px;
+    }
+
+    .additional-info {
+        border-top: 1px solid var(--border-color-1);
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 40px;
+    }
+
+
+
+    .modal-dialog {
+        margin-right: 37% !important;
+        margin-top: 8% !important;
+    }
+
+    .close {
+        height: 20px;
+        width: 20px;
+        line-height: 23px;
+        right: -15px;
+        top: 0px;
+    }
+
+    .modal-content {
+        width: 680px !important;
+    }
+
+    .popup-contact {
+        width: 20%;
+
+        .modal-body,
+        .col-lg-6,
+        .modal-product-info {
+            padding: 0px !important;
+        }
+    }
+
+    #popup-contact-div1 {
+        padding: 0px;
+    }
+
+    #popup-contact-form {
+        top: 0;
+        background-color: var(--ltn__secondary-color);
+        padding: 0px;
+        text-align: center;
+
+        .form-field {
+            height: 40px !important;
+            margin-bottom: 15px;
+            width: 90%;
+        }
+        
+
+        .form-title {
+            color: #ffffff;
+            text-align: center;
+            padding-top: 10px;
+            // line-height: 10px;
+            // 
+            // font-weight: 600;
+
+            // .pname {
+            //     font-size: 26px;
+            //     font-weight: 800;
+            //     line-height: 40px;
+            // }
+        }
+
+        .ltn__widget-title,
+        .input-info-save {
+            color: #ffffff !important;
+        }
+
+        .ltn__widget-title-border-2 {
+            border-color: #ffffff !important;
+        }
+
+        .theme-btn-5 {
+            background-color: #ffffff;
+            padding: 10px;
+            width: 90%;
+            margin-left: 5%;
+            text-align: center;
+        }
+
+        .whatsapp-btn {
+            padding: 0px;
+            width: 50%;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: var(--ltn__secondary-color);
+        }
+    }
+}
