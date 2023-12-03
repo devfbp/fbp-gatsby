@@ -21,13 +21,13 @@ exports.createPages = async ({ actions }) => {
     defer: true,
   })
   createPage({
-    path: "/product-details",
-    matchPath: "/product-details/:property_id",
+    path: "/property-details",
+    matchPath: "/property-details/:property_id",
     component: PropertyTemplate,
   })
   createPage({
-    path: "/product-results",
-    matchPath: "/product-results/",
+    path: "/property-results",
+    matchPath: "/property-results/",
     component: PropertyResult,
   })
   createPage({

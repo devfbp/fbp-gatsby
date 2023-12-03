@@ -9,154 +9,177 @@ import Pagination from "./pagination"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const PropertyResults = () => {
-    const [numberOfPage, setNumberOfPage] = useState(1);
-    const [page, setPage] = useState(1);
-    const [resultsPerPage, setResultsPerPage] = useState(3);
-    
-    var pageFirstResult = (Number(page) - 1) * resultsPerPage;
-    const location = "Chennai";
-    const area = "";
-    const ptype = "Appartments";
+  const [numberOfPage, setNumberOfPage] = useState(1);
+  const [page, setPage] = useState(1);
+  const [resultsPerPage, setResultsPerPage] = useState(6);
 
-    const { loading: count_loading, error: count_error, data: count_data } = useQuery(PROPERTY_RESULTS_COUNT, {
-        variables: {},
-        fetchPolicy: "no-cache"
-    });
-    useEffect(() => {
-        if (count_data) {
-            setNumberOfPage(Math.ceil(parseInt(count_data?.properties?.data.length) / parseInt(resultsPerPage)));
-            //console.log(numberOfPage)
-            
-        }
-    }, [count_data]);
+  var pageFirstResult = (Number(page) - 1) * resultsPerPage;
+  const location = "Chennai";
+  const area = "";
+  const ptype = "Appartments";
 
-    const { loading, error, data } = useQuery(PROPERTY_RESULTS, {
-        variables: { LIMIT: resultsPerPage, PAGE: page },
-        fetchPolicy: "no-cache"
-    });
-    if (loading || count_loading) {
-        return <>loading...</>
+  const queryParams = {
+    Name: { eq: "Egattur" }
+  };
+  const { loading: count_loading, error: count_error, data: count_data } = useQuery(PROPERTY_RESULTS_COUNT, {
+    variables: queryParams,
+    fetchPolicy: "no-cache"
+  });
+  useEffect(() => {
+    if (count_data) {
+      setNumberOfPage(Math.ceil(parseInt(count_data?.properties?.data.length) / parseInt(resultsPerPage)));
+      //console.log(numberOfPage)
+
     }
-    if (error || count_error) {
-        return <>error</>
-    }
+  }, [count_data]);
 
-    let PublicUrl = process.env.GATSBY_PUBLIC_URL + '/'
-    return (
-        <>
-            <Layout2>
-                <div>
-                    <div className="ltn__product-area ltn__product-gutter mb-100">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="ltn__shop-options">
-                                        <ul>
-                                            <li>
-                                                <div className="ltn__grid-list-tab-menu ">
-                                                    <div className="nav">
-                                                        <a className="active show" data-bs-toggle="tab" href="#liton_product_grid"><i className="fas fa-th-large" /></a>
-                                                        <a data-bs-toggle="tab" href="#liton_product_list"><i className="fas fa-list" /></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="short-by text-center">
-                                                    <select className="nice-select">
-                                                        <option>Default sorting</option>
-                                                        <option>Sort by popularity</option>
-                                                        <option>Sort by new arrivals</option>
-                                                        <option>Sort by price: low to high</option>
-                                                        <option>Sort by price: high to low</option>
-                                                    </select>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="showing-product-number text-right">
-                                                    <span>Showing 9 of 20 results</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="tab-content ">
-                                        <div className="tab-pane fade active show" id="liton_product_grid">
-                                            <div className="ltn__product-tab-content-inner ltn__product-grid-view">
-                                                <div className="row">
-                                                    <div className="col-lg-12">
-                                                        {/* Search Widget */}
-                                                        <div className="ltn__search-widget mb-30">
-                                                            <form action="#">
-                                                                <input type="text" name="search" placeholder="Search your keyword..." />
-                                                                <button type="submit"><i className="fas fa-search" /></button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    {/* ltn__product-item */}
-                                                    {data &&
-                                                        data?.properties?.data?.map((property, index) => (
-                                                            <>
-                                                                <div className="col-lg-4 col-sm-6 col-12">
-                                                                    <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                                                                        <div className="product-img">
-                                                                            <a href={"/product-details/" + property?.attributes?.Property_Id}><img src={process.env.GATSBY_STRAPI_IMAGE_URL + smallImg(property?.attributes.Main_Image)} alt="#" width={400} height={280} /></a>
+  const { loading, error, data } = useQuery(PROPERTY_RESULTS, {
+    variables: { LIMIT: resultsPerPage, PAGE: page },
+    fetchPolicy: "no-cache"
+  });
+  if (loading || count_loading) {
+    return <>loading...</>
+  }
+  if (error || count_error) {
+    return <>error</>
+  }
 
-                                                                        </div>
-                                                                        <div className="product-info">
-                                                                            <div class="product-price">
-                                                                                <span>{rupeeFormatStr(property?.attributes?.Price)}
-                                                                                </span>
-                                                                            </div>
-                                                                            <div className="product-badge">
-                                                                                <ul>
-                                                                                    <li className="sale-badg">{property?.attributes?.Status?.data?.attributes?.Name}</li>
-                                                                                </ul>
-                                                                            </div>
-
-                                                                            <h2 className="product-title go-top"><a href="/product-details">{property?.attributes?.Name}</a></h2>
-                                                                            <div className="product-img-location">
-                                                                                <ul>
-                                                                                    <li className="go-top">
-                                                                                        <a href="/contact"><i className="flaticon-pin" /> {property?.attributes?.Area?.data?.attributes?.Name}, {property?.attributes?.Area?.data?.attributes?.Location?.data?.attributes?.Name}</a>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                            <ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                                                                                <li><span>{property?.attributes?.Bedrooms} </span>
-                                                                                    Bedrooms
-                                                                                </li>
-                                                                                <li><span>{property?.attributes?.Bathrooms} </span>
-                                                                                    Bathrooms
-                                                                                </li>
-                                                                                <li><span>{property?.attributes?.Unit_Size} </span>
-                                                                                    square Ft
-                                                                                </li>
-                                                                            </ul>
-
-
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </>
-                                                        ))
-                                                    }
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <Pagination numberOfPage={numberOfPage} currentpage={page} setPage={setPage}/>
-                                </div>
-                            </div>
+  let PublicUrl = process.env.GATSBY_PUBLIC_URL + '/'
+  return (
+    <>
+      <Layout2>
+        <div>
+          <div className="ltn__product-area ltn__product-gutter mb-100">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="ltn__shop-options">
+                    <ul>
+                      <li>
+                        <div className="ltn__grid-list-tab-menu ">
+                          <div className="nav">
+                            <a className="active show" data-bs-toggle="tab" href="#liton_product_grid"><i className="fas fa-th-large" /></a>
+                            <a data-bs-toggle="tab" href="#liton_product_list"><i className="fas fa-list" /></a>
+                          </div>
                         </div>
+                      </li>
+                      <li>
+                        <div className="short-by text-center">
+                          <select className="nice-select">
+                            <option>Default sorting</option>
+                            <option>Sort by popularity</option>
+                            <option>Sort by new arrivals</option>
+                            <option>Sort by price: low to high</option>
+                            <option>Sort by price: high to low</option>
+                          </select>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="showing-product-number text-right">
+                          <span>Showing 9 of 20 results</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="tab-content ">
+                    <div className="tab-pane fade active show" id="liton_product_grid">
+                      <div className="ltn__product-tab-content-inner ltn__product-grid-view">
+                        <div className="row">
+                          <div className="col-lg-12">
+                            {/* Search Widget */}
+                            <div className="ltn__search-widget mb-30">
+                              <form action="#">
+                                <input type="text" name="search" placeholder="Search your keyword..." />
+                                <button type="submit"><i className="fas fa-search" /></button>
+                              </form>
+                            </div>
+                          </div>
+                          {/* ltn__product-item */}
+                          {data &&
+                            data?.properties?.data?.map((property, index) => (
+                              <>
+                                <div className="col-lg-4 col-sm-6 col-12">
+                                  <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                    <div className="product-img">
+                                      <a href={"/property-details/" + property?.attributes?.Property_Id}><img src={process.env.GATSBY_STRAPI_IMAGE_URL + smallImg(property?.attributes.Main_Image)} alt="#" width={400} height={280} /></a>
+
+                                    </div>
+                                    <div className="product-info">
+                                      <div class="product-price">
+                                        <span>{rupeeFormatStr(property?.attributes?.Price)}
+                                        </span>
+                                      </div>
+                                      <div className="product-badge">
+                                        <ul>
+                                          <li className="sale-badg">{property?.attributes?.Status?.data?.attributes?.Name}</li>
+                                        </ul>
+                                      </div>
+
+                                      <h2 className="product-title go-top"><a href="/product-details">{property?.attributes?.Name}</a></h2>
+                                      <div className="product-img-location">
+                                        <ul>
+                                          <li className="go-top">
+                                            <a href="/contact"><i className="flaticon-pin" /> {property?.attributes?.Area?.data?.attributes?.Name}, {property?.attributes?.Area?.data?.attributes?.Location?.data?.attributes?.Name}</a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                      <ul className="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                        <li><span>{property?.attributes?.Bedrooms} </span>
+                                          Bedrooms
+                                        </li>
+                                        <li><span>{property?.attributes?.Bathrooms} </span>
+                                          Bathrooms
+                                        </li>
+                                        <li><span>{property?.attributes?.Unit_Size} </span>
+                                          square Ft
+                                        </li>
+                                      </ul>
+
+
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </>
+                            ))
+                          }
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <Pagination numberOfPage={numberOfPage} currentpage={page} setPage={setPage} />
                 </div>
-            </Layout2>
-        </>
-    )
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout2>
+    </>
+  )
 }
+console.log(sessionStorage.getItem("search_location"))
+console.log(sessionStorage.getItem("search_area"))
+console.log(sessionStorage.getItem("search_properytype"))
+
+let filters = '{}';
+let wqry = [];
+if (sessionStorage.getItem("search_area") != "") {
+  wqry.push('{Area:{Name:{eq:"' + sessionStorage.getItem("search_area") + '"}}}');
+} 
+if (sessionStorage.getItem("search_location") != "" && sessionStorage.getItem("search_area") == "") {
+  wqry.push('{Area:{Location:{Name:{eq:"' + sessionStorage.getItem("search_location") + '"}}}}');
+}
+
+if (sessionStorage.getItem("search_properytype") != "") {
+  wqry.push('{Type:{Name:{eq:"' + sessionStorage.getItem("search_properytype") + '"}}}');
+}
+if (wqry != "") {
+  filters = wqry.join(",");
+}
+console.log("filters", filters)
 const PROPERTY_RESULTS_COUNT = gql`
 query PropertyResults {
-  properties (sort:"Property_Id",pagination:{limit:1000}) {
+  properties (sort:"Property_Id",pagination:{limit:1000}, filters: ${filters}) {
     data {
       id 
     }
@@ -165,7 +188,7 @@ query PropertyResults {
 `
 const PROPERTY_RESULTS = gql`
 query PropertyResults ($LIMIT: Int!, $PAGE: Int!){
-  properties (pagination:{page:$PAGE,pageSize:$LIMIT}) {
+  properties (pagination:{page:$PAGE,pageSize:$LIMIT},filters: ${filters}) {
     data {
       id 
       attributes {

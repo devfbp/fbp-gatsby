@@ -23,7 +23,7 @@ const Pagination = (props) => {
                     <ul>
                         {pages &&
                             pages.map((p, index) => (
-                                <li><a data-pageid={p?.page} href="javascript:void(0)" onClick={selectpage} className={p?.active == 1 ? "active" : ""}>{p?.page}</a></li>
+                                <li className={p?.active == 1 ? "active" : ""}><a data-pageid={p?.page} href="javascript:void(0)" onClick={selectpage}>{p?.page}</a></li>
                             )) 
                         }
                         {/* <li><a href="#"><i className="fas fa-angle-double-left" /></a></li>

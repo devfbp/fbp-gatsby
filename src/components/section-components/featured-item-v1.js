@@ -65,7 +65,7 @@ function FeaturedItemV1(props) {
 									<div className="col-lg-12">
 										<div className="ltn__product-item ltn__product-item-4 text-center---">
 											<div className="product-img go-top">
-												<a href={"/product-details/" + property?.Property_Id}><img src={imgUrl(property?.Main_Image)} alt="#" /></a>
+												<a href={"/property-details/" + property?.Property_Id}><img src={imgUrl(property?.Main_Image)} alt="#" /></a>
 												<div className="product-badge">
 													<ul>
 														<li className="sale-badge bg-green---">{property?.Status?.Name}</li>
@@ -86,7 +86,7 @@ function FeaturedItemV1(props) {
 												<div className="product-price">
 													<span>{priceString(property?.Price)}</span>
 												</div>
-												<h2 className="product-title go-top"><a href="/product-details">{property?.Name}</a></h2>
+												<h2 className="product-title go-top"><a href="/property-details">{property?.Name}</a></h2>
 
 												<ul className="ltn__list-item-2 ltn__list-item-2-before">
 													<li><span>{property?.Bedrooms} <i className="flaticon-bed" /></span>
