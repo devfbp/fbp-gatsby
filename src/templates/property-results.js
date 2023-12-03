@@ -8,7 +8,25 @@ import { useState, useEffect } from "react";
 import Pagination from "./pagination"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
+var filters = '{}';
+var wqry = [];
 const PropertyResults = () => {
+  if (typeof window !== 'undefined') {
+    if (sessionStorage.getItem("search_area") != "") {
+      wqry.push('{Area:{Name:{eq:"' + sessionStorage.getItem("search_area") + '"}}}');
+    }
+    if (sessionStorage.getItem("search_location") != "" && sessionStorage.getItem("search_area") == "") {
+      wqry.push('{Area:{Location:{Name:{eq:"' + sessionStorage.getItem("search_location") + '"}}}}');
+    }
+
+    if (sessionStorage.getItem("search_properytype") != "") {
+      wqry.push('{Type:{Name:{eq:"' + sessionStorage.getItem("search_properytype") + '"}}}');
+    }
+    if (wqry != "") {
+      filters = wqry.join(",");
+    }
+    console.log("filters", filters)
+  }
   const [numberOfPage, setNumberOfPage] = useState(1);
   const [page, setPage] = useState(1);
   const [resultsPerPage, setResultsPerPage] = useState(6);
@@ -158,22 +176,6 @@ const PropertyResults = () => {
   )
 }
 
-var filters = '{}';
-var wqry = [];
-if (sessionStorage.getItem("search_area") != "") {
-  wqry.push('{Area:{Name:{eq:"' + sessionStorage.getItem("search_area") + '"}}}');
-} 
-if (sessionStorage.getItem("search_location") != "" && sessionStorage.getItem("search_area") == "") {
-  wqry.push('{Area:{Location:{Name:{eq:"' + sessionStorage.getItem("search_location") + '"}}}}');
-}
-
-if (sessionStorage.getItem("search_properytype") != "") {
-  wqry.push('{Type:{Name:{eq:"' + sessionStorage.getItem("search_properytype") + '"}}}');
-}
-if (wqry != "") {
-  filters = wqry.join(",");
-}
-console.log("filters", filters)
 const PROPERTY_RESULTS_COUNT = gql`
 query PropertyResults {
   properties (sort:"Property_Id",pagination:{limit:1000}, filters: ${filters}) {
