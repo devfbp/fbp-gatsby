@@ -158,8 +158,8 @@ const PropertyResults = () => {
   )
 }
 
-let filters = '{}';
-let wqry = [];
+var filters = '{}';
+var wqry = [];
 if (sessionStorage.getItem("search_area") != "") {
   wqry.push('{Area:{Name:{eq:"' + sessionStorage.getItem("search_area") + '"}}}');
 } 
