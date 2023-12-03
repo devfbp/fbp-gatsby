@@ -157,9 +157,6 @@ const PropertyResults = () => {
     </>
   )
 }
-console.log(sessionStorage.getItem("search_location"))
-console.log(sessionStorage.getItem("search_area"))
-console.log(sessionStorage.getItem("search_properytype"))
 
 let filters = '{}';
 let wqry = [];
