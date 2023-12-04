@@ -25,5 +25,23 @@ exports.createPages = async ({ actions }) => {
     path: "/property-results",
     component: require.resolve("./src/templates/property-results.js")
   })
+  createPage({
+    path: "/news",
+    component: require.resolve("./src/templates/news-result.js")
+  })
+  createPage({
+    path: "/news-details",
+    matchPath: "/news/:id",
+    component: require.resolve("./src/templates/news-details.js")
+  })
+  createPage({
+    path: "/property-locations",
+    component: require.resolve("./src/templates/property-location.js")
+  })
+  createPage({
+    path: "/property-location-details",
+    matchPath: "/property-location-details/:id",
+    component: require.resolve("./src/templates/property-location-details.js")
+  })
 
 }

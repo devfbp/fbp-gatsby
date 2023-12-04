@@ -4,6 +4,7 @@ import gql from "graphql-tag"
 import { smallImg, rupeeFormatStr } from '../../utils';
 import { useState, useEffect } from "react";
 import Pagination from "../../templates/pagination";
+import "./item.scss"
 
 const Item = (props) => {
   const [numberOfPage, setNumberOfPage] = useState(1);
@@ -29,7 +30,7 @@ const Item = (props) => {
       //console.log(numberOfPage)
       //totalRecords = count_data;
       props.setResults(parseInt(count_data?.properties?.data.length));
-      
+
 
     }
   }, [count_data]);
@@ -45,11 +46,11 @@ const Item = (props) => {
     return <>error</>
   }
   props.setShowing((page) * resultsPerPage);
-  
+
   let PublicUrl = process.env.GATSBY_PUBLIC_URL + '/'
   return (
     <>
-      <div className="tab-content ">
+      <div className="tab-content" id="property-details">
         <div className="tab-pane fade active show" id="liton_product_grid">
           <div className="ltn__product-tab-content-inner ltn__product-grid-view">
             <div className="row">
@@ -69,17 +70,32 @@ const Item = (props) => {
                     <div className="col-lg-4 col-sm-6 col-12">
                       <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                         <div className="product-img">
-                          <a href={"/property-details/" + property?.attributes?.Property_Id}><img src={process.env.GATSBY_STRAPI_IMAGE_URL + smallImg(property?.attributes.Main_Image)} alt="#" width={400} height={280} /></a>
-
-                        </div>
-                        <div className="product-info">
-                          <div class="product-price">
-                            <span>{rupeeFormatStr(property?.attributes?.Price)}
-                            </span>
+                          <a href={"/property-details/" + property?.attributes?.Property_Id}><img src={process.env.GATSBY_STRAPI_IMAGE_URL + smallImg(property?.attributes.Main_Image)} alt="#" width={400} height={230} /></a>
+                          <div className="real-estate-agent">
+                            <div className="badge-custom">
+                              {property?.attributes?.Status?.data?.attributes?.Name}
+                            </div>
                           </div>
+                          <div className="product-img-location-gallery">
+                            <div className="product-img-location go-top">
+                              <ul>
+                                <li>
+                                  <div class="product-price">
+                                    <span>
+                                      {rupeeFormatStr(property?.attributes?.Price)}
+                                    </span>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="product-info">
+                          
                           <div className="product-badge">
                             <ul>
-                              <li className="sale-badg">{property?.attributes?.Status?.data?.attributes?.Name}</li>
+                              <li className="sale-badge">{property?.attributes?.Type?.data?.attributes?.Name}</li>
                             </ul>
                           </div>
 
@@ -116,27 +132,32 @@ const Item = (props) => {
         </div>
       </div>
       <Pagination numberOfPage={numberOfPage} currentpage={page} setPage={setPage} />
-
     </>
   )
 }
 var filters = '{}';
 var wqry = [];
+var result_title = "Properties for sale ";
 if (typeof window !== 'undefined') {
+  sessionStorage.setItem("search_result_title", "");
   if (sessionStorage.getItem("search_area") != "") {
-    wqry.push('{Area:{Name:{eq:"' + sessionStorage.getItem("search_area") + '"}}}');
+    wqry.push('Area:{Name:{eq:"' + sessionStorage.getItem("search_area") + '"}}');
+    result_title += " in " + sessionStorage.getItem("search_area");
   }
   if (sessionStorage.getItem("search_location") != "" && sessionStorage.getItem("search_area") == "") {
-    wqry.push('{Area:{Location:{Name:{eq:"' + sessionStorage.getItem("search_location") + '"}}}}');
+    wqry.push('Area:{Location:{Name:{eq:"' + sessionStorage.getItem("search_location") + '"}}}');
+    result_title += " in " + sessionStorage.getItem("search_location");
   }
-
   if (sessionStorage.getItem("search_properytype") != "") {
-    wqry.push('{Type:{Name:{eq:"' + sessionStorage.getItem("search_properytype") + '"}}}');
+    wqry.push('Type:{Name:{eq:"' + sessionStorage.getItem("search_properytype") + '"}}');
+    result_title = result_title.replace("Properties", sessionStorage.getItem("search_properytype"))
   }
   if (wqry != "") {
-    filters = wqry.join(",");
+    filters = '{' + wqry.join(",") + '}';
   }
   console.log("filters", filters)
+  console.log("result_title", result_title)
+  sessionStorage.setItem("search_result_title", result_title);
 }
 const PROPERTY_RESULTS_COUNT = gql`
 query PropertyResults {

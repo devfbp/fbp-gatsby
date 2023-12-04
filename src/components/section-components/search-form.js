@@ -80,7 +80,7 @@ function SearchForm(props) {
 										<form action="#" className="ltn__car-dealer-form-box row">
 											<div className="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-3 col-md-6">
 												<select className="nice-select location-options" onChange={onLocationChanges}>
-													<option value="all">-Choose Location-</option>
+													<option value="all">Choose Location</option>
 													{SelectLocation &&
 														SelectLocation.map((location, index) => (
 															<option value={location?.Name}>{location?.Name}</option>

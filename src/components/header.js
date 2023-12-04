@@ -10,6 +10,7 @@ import HeaderMenu from './header-menu';
 function Header(props) {
   const siteConfig = props?.siteConfig;
   const logo = imgPublicUrl(siteConfig?.Logo);
+  const logo2 = imgPublicUrl(siteConfig?.Logo2);
   const defaultMenu = "Root";
   const childMenuList = [];
   const dummyArray = [defaultMenu];

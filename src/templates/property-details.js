@@ -26,7 +26,7 @@ const PropertyDetailsTemplate = () => {
     variables: { Property_Id: property_id },
   });
   if (loading) {
-    return <></>
+    return <div className="custom-loader"></div>
   }
   if (error) {
     return <>error</>

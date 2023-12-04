@@ -10,28 +10,28 @@ import FeaturedItemV1 from "../components/section-components/featured-item-v1"
 import Contact from "../components/property-location/location-contact"
 
 const PropertyLocations = () => {
-  const { loading, error, data } = useQuery(LocationResults);
+  const { loading, error, data } = useQuery(PROPERTY_LOCATION);
   if (loading) {
     return <></>
   }
   if (error) {
     return <>error</>
   }
-  const newslists = data?.propertyLocations?.data
+  const locationResult = data?.propertyLocations?.data
   return (
     <>
-      {newslists &&
+      {locationResult &&
         <Layout2>
           <PageHeader headertitle="Properties Locations" />
           <div className="ltn__shop-details-area pb-10">
             <div className="container">
               <div className="row">
-                <PropertyLocation locationresults={newslists} />
+                <PropertyLocation locationresults={locationResult} />
               </div>
             </div>
             <div className="container">
               <div className="row">
-                <FeaturedItemV1 sectionClass="pt-120" title={"Upcoming Projects"}/>
+                <FeaturedItemV1 sectionClass="pt-120" title={"Upcoming Projects"} />
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@ const PropertyLocations = () => {
  */
 
 
-const LocationResults = gql`
+const PROPERTY_LOCATION = gql`
 query LocationResults {
   propertyLocations{
     data{

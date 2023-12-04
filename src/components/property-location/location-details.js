@@ -14,7 +14,7 @@ function LocationDetails(props) {
                 <div className="col-lg-8">
                     <div className="ltn__team-details-member-info-details">
                         <div className="row">
-                            <h1 className='mt-5'>{Name} Details</h1>
+                            <h1 className='mt-5'>Areas Covered</h1>
                             <div className="col-lg-6">
                                 <div className="ltn__team-details-member-about">
                                     <ul>
