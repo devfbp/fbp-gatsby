@@ -9,6 +9,8 @@ import Item from "../components/property-results/item"
 
 const PropertyResults = () => {
   let PublicUrl = process.env.GATSBY_PUBLIC_URL + '/'
+  const [showing, setShowing] = useState(1);
+  const [results, setResults] = useState(6);
   return (
     <>
       <Layout2>
@@ -40,13 +42,12 @@ const PropertyResults = () => {
                       </li>
                       <li>
                         <div className="showing-product-number text-right">
-                          <span>Showing 9 of 20 results</span>
+                          <span>Showing {showing} of {results} results</span>
                         </div>
                       </li>
                     </ul>
                   </div>
-
-                  <Item />
+                  <Item setShowing={setShowing} setResults={setResults} />
                 </div>
               </div>
             </div>

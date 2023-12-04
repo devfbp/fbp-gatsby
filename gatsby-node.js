@@ -10,10 +10,6 @@
 const path = require("path")
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions;
-  const PropertyTemplate = path.resolve("./src/templates/property-details.js");
-  const PropertyResult = path.resolve("./src/templates/property-results.js");
-  const NewsDetailsTemplate = path.resolve("./src/templates/news-details.js");
-  const PropertyLocationDetails = path.resolve("./src/templates/property-location-details.js");
   createPage({
     path: "/using-dsg",
     component: require.resolve("./src/templates/using-dsg.js"),
@@ -23,33 +19,11 @@ exports.createPages = async ({ actions }) => {
   createPage({
     path: "/property-details",
     matchPath: "/property-details/:property_id",
-    component: PropertyTemplate,
+    component: require.resolve("./src/templates/property-details.js")
   })
   createPage({
     path: "/property-results",
-    matchPath: "/property-results/",
-    component: PropertyResult,
+    component: require.resolve("./src/templates/property-results.js")
   })
-  createPage({
-    path: "/news",
-    component: require.resolve("./src/templates/news-result.js"),
-    context: {},
-    defer: true,
-  })
-  createPage({
-    path: "/news-details",
-    matchPath: "/news/:id",
-    component: NewsDetailsTemplate,
-  })
-  createPage({
-    path: "/properties-by-location",
-    component: require.resolve("./src/templates/property-location.js"),
-    context: {},
-    defer: true,
-  })
-  createPage({
-    path: "/property-location",
-    matchPath: "/property-location/:id",
-    component: PropertyLocationDetails,
-  })
+
 }

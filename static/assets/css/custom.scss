@@ -89,3 +89,18 @@
 .table-responsive {
     text-align: center;
 }
+.custom-loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 45%;
+    margin-left: 50%;
+    background: 
+      radial-gradient(farthest-side,#ff5a3c 94%,#0000) top/8px 8px no-repeat,
+      conic-gradient(#0000 30%,#ff5a3c);
+    -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation:s3 1s infinite linear;
+  }
+  
+  @keyframes s3{ 
+    100%{transform: rotate(1turn)}
+  }
