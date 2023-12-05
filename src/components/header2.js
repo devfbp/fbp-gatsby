@@ -9,7 +9,8 @@ import { imgPublicUrl } from "../utils";
 import HeaderMenu from './header-menu';
 function Header2(props) {
   const siteConfig = props?.siteConfig;
-  const logo = imgPublicUrl(siteConfig?.Logo2);
+  const logo = imgPublicUrl(siteConfig?.Logo);
+  const logo2 = imgPublicUrl(siteConfig?.Logo2);
   const defaultMenu = "Root";
   const childMenuList = [];
   const dummyArray = [defaultMenu];
@@ -29,10 +30,12 @@ function Header2(props) {
     dummyArray.splice(0, 1)
   }
   let PublicUrl = process.env.GATSBY_PUBLIC_URL + '/'
+  let CustomClass = props.CustomClass ? props.CustomClass : ''
   return (
     <div>
-      <header className="ltn__header-area ltn__header-5 ltn__header-transparent--- gradient-color-4---">
-        <div className="ltn__header-top-area section-bg-6 top-area-color-white---">
+      <header className={"ltn__header-area ltn__header-5 ltn__header-logo-and-mobile-menu-in-mobile ltn__header-logo-and-mobile-menu ltn__header-transparent--- gradient-color-4--- " + CustomClass}>
+        {/* ltn__header-top-area start */}
+        <div className="ltn__header-top-area d-none">
           <div className="container">
             <div className="row">
               <div className="col-md-7">
@@ -47,9 +50,10 @@ function Header2(props) {
                 <div className="top-bar-right text-end">
                   <div className="ltn__top-bar-menu">
                     <ul>
-                      <li className="d-none">
-                        {/* ltn__language-menu */}
-                        {/* <div className="ltn__drop-menu ltn__currency-menu ltn__language-menu">
+                      {/* ltn__language-menu */}
+                      {/* <li>
+                        
+                        <div className="ltn__drop-menu ltn__currency-menu ltn__language-menu">
                           <ul>
                             <li><a href="#" className="dropdown-toggle"><span className="active-currency">English</span></a>
                               <ul>
@@ -62,8 +66,8 @@ function Header2(props) {
                               </ul>
                             </li>
                           </ul>
-                        </div> */}
-                      </li>
+                        </div>
+                      </li> */}
                       <li>
                         <Social links={siteConfig?.Social_Links} clsname={"ltn__social-media"} />
                       </li>
@@ -74,13 +78,15 @@ function Header2(props) {
             </div>
           </div>
         </div>
+        {/* ltn__header-top-area end */}
+        {/* ltn__header-middle-area start */}
         <div className="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white">
           <div className="container">
             <div className="row">
               <div className="col">
                 <div className="site-logo-wrap">
                   <div className="site-logo go-top">
-                    <a href="/"><img src={logo} alt="Logo" /></a>
+                    <a href="/"><img src={logo2} alt="Logo" /></a>
                   </div>
                   <div className="get-support clearfix d-none">
                     <div className="get-support-icon">
@@ -94,18 +100,30 @@ function Header2(props) {
                 </div>
               </div>
               <div className="col header-menu-column">
-                <div className="header-menu d-none d-xl-block">
+                <div className="header-menu d-none d-xl-block go-top">
                   <nav>
-                    <div className="ltn__main-menu go-top">
-                      <HeaderMenu Top_Menu={siteConfig?.Top_Menu} />
+                    <div className="ltn__main-menu">
+                      <HeaderMenu Top_Menu={siteConfig?.Top_Menu} Menu_Type={"desktop"} />
                     </div>
                   </nav>
                 </div>
               </div>
-
+              <div className="col--- ltn__header-options ltn__header-options-2 ">
+                {/* Mobile Menu Button */}
+                <div className="mobile-menu-toggle d-xl-none">
+                  <a href="#ltn__utilize-mobile-menu" className="ltn__utilize-toggle">
+                    <svg viewBox="0 0 800 600">
+                      <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top" />
+                      <path d="M300,320 L540,320" id="middle" />
+                      <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) " />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        {/* ltn__header-middle-area end */}
       </header>
       <div id="ltn__utilize-mobile-menu" className="ltn__utilize ltn__utilize-mobile-menu">
         <div className="ltn__utilize-menu-inner ltn__scrollbar">
@@ -115,25 +133,14 @@ function Header2(props) {
             </div>
             <button className="ltn__utilize-close">×</button>
           </div>
-          <div className="ltn__utilize-menu-search-form">
-            <form action={"#"}>
-              <input type="text" placeholder="Search..." />
-              <button><i className="fas fa-search" /></button>
-            </form>
-          </div>
+
           <div className="ltn__utilize-menu">
-            <HeaderMenu Top_Menu={siteConfig?.Top_Menu} />
+            <HeaderMenu Top_Menu={siteConfig?.Top_Menu} Menu_Type={"mobile"} />
           </div>
-          <div className="ltn__social-media-2">
-            <Social links={siteConfig?.Social_Links} clsname={"ltn__social-media-2"} />
-          </div>
+
+          <Social links={siteConfig?.Social_Links} clsname={"ltn__social-media-2"} />
         </div>
       </div>
-
-      {/* Utilize Cart Menu Start */}
-
-      {/* Utilize Cart Menu End */}
-
     </div>
   )
 }

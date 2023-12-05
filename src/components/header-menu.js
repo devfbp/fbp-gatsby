@@ -36,7 +36,7 @@ function HeaderMenu(props) {
                                     <li><a href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</a></li>
                                 }
                                 {menulist?.Menu && dummyArray.includes(menulist?.Menu?.Name) &&
-                                    <li className="menu-icon">
+                                    <li className={props?.Menu_Type == "desktop" ? "menu-icon" : ""}>
                                         <a href={menulist?.Menu?.Menu_Link}>{menulist?.Menu?.Name}</a>
                                         <ul className="sub-menu menu-pages-img-show">
                                             {childMenuList[menulist?.Menu?.Name].map((childmenu, cindex) => (

@@ -7,6 +7,7 @@ import '../../static/assets/css/custom.scss'
 import Social from '../components/section-components/social';
 import { imgPublicUrl } from "../utils";
 import HeaderMenu from './header-menu';
+import "./header.scss"
 function Header(props) {
   const siteConfig = props?.siteConfig;
   const logo = imgPublicUrl(siteConfig?.Logo);
@@ -47,9 +48,10 @@ function Header(props) {
                 <div className="top-bar-right text-end">
                   <div className="ltn__top-bar-menu">
                     <ul>
-                      <li>
-                        {/* ltn__language-menu */}
-                        {/* <div className="ltn__drop-menu ltn__currency-menu ltn__language-menu">
+
+                      {/* ltn__language-menu */}
+                      {/* <li>
+                        <div className="ltn__drop-menu ltn__currency-menu ltn__language-menu">
                           <ul>
                             <li><a href="#" className="dropdown-toggle"><span className="active-currency">English</span></a>
                               <ul>
@@ -62,8 +64,8 @@ function Header(props) {
                               </ul>
                             </li>
                           </ul>
-                        </div> */}
-                      </li>
+                        </div>
+                      </li> */}
                       <li>
                         <Social links={siteConfig?.Social_Links} clsname={"ltn__social-media"} />
                       </li>
@@ -97,7 +99,7 @@ function Header(props) {
                 <div className="header-menu d-none d-xl-block go-top">
                   <nav>
                     <div className="ltn__main-menu">
-                      <HeaderMenu Top_Menu={siteConfig?.Top_Menu} />
+                      <HeaderMenu Top_Menu={siteConfig?.Top_Menu} Menu_Type={"desktop"} />
                     </div>
                   </nav>
                 </div>
@@ -126,11 +128,11 @@ function Header(props) {
             </div>
             <button className="ltn__utilize-close">×</button>
           </div>
-          
+
           <div className="ltn__utilize-menu">
-            <HeaderMenu Top_Menu={siteConfig?.Top_Menu} />
+            <HeaderMenu Top_Menu={siteConfig?.Top_Menu} Menu_Type={"mobile"} />
           </div>
-          <Social links={siteConfig?.Social_Links} clsname={"ltn__social-media-2"}/>
+          <Social links={siteConfig?.Social_Links} clsname={"ltn__social-media-2"} />
         </div>
       </div>
     </div>

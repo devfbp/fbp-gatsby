@@ -1,17 +1,43 @@
 import * as React from "react"
-import { isMobile } from 'react-device-detect';
+import { isBrowser } from 'react-device-detect';
 import WhatsApp from '../../images/whatsappchart.png'
 import { SendMail } from "../../utils";
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
+import $ from 'jquery';
 const EnquiryForm = (props) => {
     let fdata = props?.fdata;
-    const [stickClass, setStickClass] = React.useState("box-shadow-1 widget ltn__form-widget sticky-form-class sticky-form-class");
-    React.useEffect(() => {
-        if (isMobile) {
-            setStickClass("box-shadow-1 widget ltn__form-widget sticky-form-class");
+    const [stickClass, setStickClass] = useState("box-shadow-1 widget ltn__form-widget sticky-form-class sticky-form-class");
+    const handleScroll = e => {
+        var page_wrapper = parseFloat($("#quarter").height()) - 650;
+        //  console.log(window.scrollY)
+        var scroll = window.scrollY;
+        if (scroll < 445) {
+            $(".sticky-form-class").css({
+                'position': 'relative',
+                'top': '0',
+                'width': '100%'
+            });
+        } else {
+            $(".sticky-form-class").css({
+                'position': 'fixed',
+                'top': '20%',
+                'width': '28%'
+            });
         }
-    }, [isMobile]);
+        if (scroll >= page_wrapper) {
+            $(".sticky-form-class").css({
+                'position': 'relative',
+                'top': '0',
+                'width': '100%'
+            });
+        }
+    }
+    useEffect(() => {
+        if (isBrowser) {
+            //setStickClass("box-shadow-1 widget ltn__form-widget sticky-form-class");
+            window.addEventListener("scroll", handleScroll);
+        }
+    }, [isBrowser]);
 
     const [data, setData] = useState({
         "template_name": "Propery_Enquiry",

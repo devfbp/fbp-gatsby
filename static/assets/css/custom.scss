@@ -109,14 +109,20 @@
     }
 }
 
-
 @media (max-width: 767px) {
     .ltn__header-top-area {
         display: none;
     }
     .site-logo {
         img {
-            width: 80%;
+            width: 60%;
+        }
+    }
+    .footer-logo {
+        .site-logo {
+            img {
+                width: 40%;
+            }
         }
     }
 }

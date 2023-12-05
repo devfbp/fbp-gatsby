@@ -9,7 +9,10 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { useState, useEffect } from "react";
 import { importScript } from "../utils"
+import { isMobile } from 'react-device-detect';
+import $ from 'jquery';
 import Header2 from "./header2";
+import Nabar from "../components/global-components/navbar-v2"
 import Footer from "./footer";
 import { Helmet } from "react-helmet";
 import jquery from 'jquery';
@@ -38,6 +41,11 @@ const Layout = ({ children }) => {
             }
           }
           Logo2 {
+            file {
+              publicURL
+            }
+          }
+          Logo3 {
             file {
               publicURL
             }
@@ -100,9 +108,22 @@ const Layout = ({ children }) => {
 
   var siteConfig = qryData?.strapiSiteConfiguration;
   var menuData = qryData?.allStrapiMenu?.nodes;
+  const handleScroll = e => {
+    //  console.log(window.scrollY)
+    var scroll = window.scrollY;
+    if (scroll < 450) {
+      $(".ltn__header-sticky").css({
+        'position': 'relative',
+      });
+    } else {
+      $(".ltn__header-sticky").css({
+        'position': 'fixed',
+      });
+    }
+  }
   //console.log("log:",menuData)
   useEffect(() => {
-    importScript(process.env.GATSBY_JS_SRC+"/assets/js/plugins.js")
+    importScript(process.env.GATSBY_JS_SRC + "/assets/js/plugins.js")
     if (siteConfig) {
       if (siteConfig?.Name) {
         //setSiteName(siteConfig?.Name);
@@ -110,6 +131,9 @@ const Layout = ({ children }) => {
     }
     if (menuData) {
       setMenuLists(menuData);
+    }
+    if (isMobile) {
+      window.addEventListener("scroll", handleScroll);
     }
   }, [siteConfig, menuData]);
   return (

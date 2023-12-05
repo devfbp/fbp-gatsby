@@ -85,7 +85,7 @@ const PropertyResults = () => {
                             <option value="all">Choose Location</option>
                             {SelectLocation &&
                               SelectLocation.map((location, index) => (
-                                <option value={location?.Name} selected={sessionStorage.getItem("search_location")==location?.Name ? "selected":""}>{location?.Name}</option>
+                                <option value={location?.Name}>{location?.Name}</option>
                               ))
                             }
                           </select>

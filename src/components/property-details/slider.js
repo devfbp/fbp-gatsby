@@ -1,10 +1,16 @@
 import * as React from "react"
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { BrowserView } from 'react-device-detect';
+import { isBrowser } from 'react-device-detect';
 const ProductSlider = (props) => {
     let Images = props?.images?.data;
     let main_image = props?.main_image?.data;
-
+    let imgW = "1904px";
+    let imgH = "250px";
+    if(isBrowser) {
+        imgW = "1904px";
+        imgH = "450px";
+    }
     return (
         <div className="ltn__img-slider-area mb-30">
             <div className="container-fluid">
@@ -16,9 +22,9 @@ const ProductSlider = (props) => {
                                     <a href={process.env.GATSBY_STRAPI_IMAGE_URL + img?.attributes?.formats?.large?.url} data-rel="lightcase:myCollection">
                                         <LazyLoadImage
                                             alt={"Image " + index}
-                                            height={"450px"}
+                                            height={imgH}
                                             src={process.env.GATSBY_STRAPI_IMAGE_URL + img?.attributes?.formats?.medium?.url} // use normal <img> attributes as props
-                                            width={"1904px"} />
+                                            width={imgW} />
                                     </a>
                                 </div>
                             </div>

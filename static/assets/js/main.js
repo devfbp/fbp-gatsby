@@ -1978,29 +1978,29 @@
     $(window).on('scroll', function () {
         var scrollHeight = parseFloat($(document).height());
         var scroll = $(window).scrollTop();
-        var page_wrapper = parseFloat($("#quarter").height()) - 650;
+        //var page_wrapper = parseFloat($("#quarter").height()) - 650;
         if (scroll < 445) {
             $(".ltn__header-sticky").removeClass("sticky-active");
-            $(".sticky-form-class").css({
-                'position': 'relative',
-                'top': '0',
-                'width': '100%'
-            });
+            // $(".sticky-form-class").css({
+            //     'position': 'relative',
+            //     'top': '0',
+            //     'width': '100%'
+            // });
         } else {
             $(".ltn__header-sticky").addClass("sticky-active");
-            $(".sticky-form-class").css({
-                'position': 'fixed',
-                'top': '20%',
-                'width': '28%'
-            });
+            // $(".sticky-form-class").css({
+            //     'position': 'fixed',
+            //     'top': '20%',
+            //     'width': '28%'
+            // });
         }
-        if (scroll >= page_wrapper) {
-            $(".sticky-form-class").css({
-                'position': 'relative',
-                'top': '0',
-                'width': '100%'
-            });
-        }
+        // if (scroll >= page_wrapper) {
+        //     $(".sticky-form-class").css({
+        //         'position': 'relative',
+        //         'top': '0',
+        //         'width': '100%'
+        //     });
+        // }
     });
 
 

@@ -12,6 +12,8 @@ import { importScript } from "../utils"
 import Header from "./header";
 import Footer from "./footer";
 import PopupContact from "./popup-contact";
+import $ from 'jquery';
+import { isMobile } from 'react-device-detect';
 import { Helmet } from "react-helmet";
 import jquery from 'jquery';
 //import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,6 +36,16 @@ const Layout = ({ children }) => {
             Separator
           }
           Logo {
+            file {
+              publicURL
+            }
+          }
+          Logo2 {
+            file {
+              publicURL
+            }
+          }
+          Logo3 {
             file {
               publicURL
             }
@@ -97,8 +109,21 @@ const Layout = ({ children }) => {
   var siteConfig = qryData?.strapiSiteConfiguration;
   var menuData = qryData?.allStrapiMenu?.nodes;
   //console.log("log:",menuData)
+  const handleScroll = e => {
+    //  console.log(window.scrollY)
+    var scroll = window.scrollY;
+    if (scroll < 450) {
+      $(".ltn__header-sticky").css({
+        'position': 'relative',
+      });
+    } else {
+      $(".ltn__header-sticky").css({
+        'position': 'fixed',
+      });
+    }
+  }
   useEffect(() => {
-    importScript(process.env.GATSBY_JS_SRC+"/assets/js/plugins.js")
+    importScript(process.env.GATSBY_JS_SRC + "/assets/js/plugins.js")
     if (siteConfig) {
       if (siteConfig?.Name) {
         //setSiteName(siteConfig?.Name);
@@ -107,6 +132,10 @@ const Layout = ({ children }) => {
     if (menuData) {
       setMenuLists(menuData);
     }
+    if (isMobile) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
   }, [siteConfig, menuData]);
   return (
     <>
