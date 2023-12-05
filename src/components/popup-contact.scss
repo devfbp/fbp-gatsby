@@ -44,6 +44,13 @@
     .modal-dialog {
         margin-right: 37% !important;
         margin-top: 8% !important;
+        @media (max-width: 767px) {
+            position: absolute;
+            float: left;
+            left: 15%;
+            top: 10%;
+            margin: 0 !important; 
+        }
     }
 
     .close {
@@ -56,6 +63,9 @@
 
     .modal-content {
         width: 680px !important;
+        @media (max-width: 767px) {
+            width: 280px !important;            
+        }
     }
 
     .popup-contact {
@@ -70,6 +80,9 @@
 
     #popup-contact-div1 {
         padding: 0px;
+        @media (max-width: 767px) {
+            display: none;
+        }
     }
 
     #popup-contact-form {

@@ -5,6 +5,7 @@ import { SendMail } from "../../utils";
 import { useState, useEffect } from 'react'
 import $ from 'jquery';
 const EnquiryForm = (props) => {
+    const pageurl = typeof window !== "undefined" ? window.location.href : "";
     let fdata = props?.fdata;
     const [stickClass, setStickClass] = useState("box-shadow-1 widget ltn__form-widget sticky-form-class sticky-form-class");
     const handleScroll = e => {
@@ -41,7 +42,7 @@ const EnquiryForm = (props) => {
 
     const [data, setData] = useState({
         "template_name": "Propery_Enquiry",
-        "propert_link": "http://localhost:8000/product-details/akshaya-tango-21/",
+        "propert_link": pageurl,
         "subject_suffix": fdata?.Name
     })
 

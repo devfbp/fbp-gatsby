@@ -1967,8 +1967,8 @@
         -------------------------------------------------------- */
         $('#ltn__newsletter_popup').modal('show');
         setTimeout(function () {
-           //$('#popup-contact').modal('show');
-        }, 2000);
+           $('#popup-contact').modal('show');
+        }, 3000);
     });
 
 
