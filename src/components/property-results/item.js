@@ -48,9 +48,10 @@ const Item = (props) => {
   props.setShowing((page) * resultsPerPage);
 
   let PublicUrl = process.env.GATSBY_PUBLIC_URL + '/'
+  
   return (
     <>
-      <div className="tab-content" id="property-details">
+      <div className="tab-content property-result-details">
         <div className="tab-pane fade active show" id="liton_product_grid">
           <div className="ltn__product-tab-content-inner ltn__product-grid-view">
             <div className="row">
@@ -70,7 +71,9 @@ const Item = (props) => {
                     <div className="col-lg-4 col-sm-6 col-12">
                       <div className="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                         <div className="product-img">
-                          <a href={"/property-details/" + property?.attributes?.Property_Id}><img src={process.env.GATSBY_STRAPI_IMAGE_URL + smallImg(property?.attributes.Main_Image)} alt="#" width={400} height={230} /></a>
+                          <a href={"/property-details/" + property?.attributes?.Property_Id}>
+                            <img src={process.env.GATSBY_STRAPI_IMAGE_URL + smallImg(property?.attributes.Main_Image)} alt="#" width={500} height={230} />
+                          </a>
                           <div className="real-estate-agent">
                             <div className="badge-custom">
                               {property?.attributes?.Status?.data?.attributes?.Name}
@@ -92,7 +95,7 @@ const Item = (props) => {
                         </div>
 
                         <div className="product-info">
-                          
+
                           <div className="product-badge">
                             <ul>
                               <li className="sale-badge">{property?.attributes?.Type?.data?.attributes?.Name}</li>
@@ -140,17 +143,23 @@ var wqry = [];
 var result_title = "Properties for sale ";
 if (typeof window !== 'undefined') {
   sessionStorage.setItem("search_result_title", "");
+  sessionStorage.setItem("selected_area", "");
+  sessionStorage.setItem("selected_location", "");
+  sessionStorage.setItem("selected_propertytype", "");
   if (sessionStorage.getItem("search_area") != "") {
     wqry.push('Area:{Name:{eq:"' + sessionStorage.getItem("search_area") + '"}}');
     result_title += " in " + sessionStorage.getItem("search_area");
+    sessionStorage.setItem("selected_area", sessionStorage.getItem("search_area"));
   }
   if (sessionStorage.getItem("search_location") != "" && sessionStorage.getItem("search_area") == "") {
     wqry.push('Area:{Location:{Name:{eq:"' + sessionStorage.getItem("search_location") + '"}}}');
     result_title += " in " + sessionStorage.getItem("search_location");
+    sessionStorage.setItem("selected_location", sessionStorage.getItem("search_location"));
   }
   if (sessionStorage.getItem("search_properytype") != "") {
     wqry.push('Type:{Name:{eq:"' + sessionStorage.getItem("search_properytype") + '"}}');
     result_title = result_title.replace("Properties", sessionStorage.getItem("search_properytype"))
+    sessionStorage.setItem("selected_propertytype", sessionStorage.getItem("search_properytype"));
   }
   if (wqry != "") {
     filters = '{' + wqry.join(",") + '}';

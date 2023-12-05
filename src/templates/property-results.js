@@ -66,8 +66,14 @@ const PropertyResults = () => {
     sessionStorage.setItem("search_properytype", e.target.value);
   }
   var title = "";
+  var selected_area = "";
+  var selected_location = "";
+  var selected_propertytype = "";
   if (typeof window !== 'undefined') {
-    title = sessionStorage.getItem("search_result_title")
+    title = sessionStorage.getItem("search_result_title");
+    selected_area = sessionStorage.getItem("selected_area");
+    selected_location = sessionStorage.getItem("selected_location");
+    selected_propertytype = sessionStorage.getItem("selected_propertytype");
   }
   return (
     <>
@@ -78,86 +84,84 @@ const PropertyResults = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="ltn__shop-options">
-                    <ul>
-                      <li>
-                        <div className="short-by text-center">
-                          <select className="nice-select location-options" onChange={onLocationChanges}>
-                            <option value="all">Choose Location</option>
-                            {SelectLocation &&
-                              SelectLocation.map((location, index) => (
-                                <option value={location?.Name}>{location?.Name}</option>
-                              ))
-                            }
-                          </select>
+                    <div class="row box-shadow-1 search-form-container">
+                      <div class="col-lg-8">
+                        <div class="row">
+                          <div class="col-lg-3 col-6">
+                            <div className="text-center">
+                              <select className="nice-select location-options" onChange={onLocationChanges}>
+                                <option value="all">Choose Location</option>
+                                {SelectLocation &&
+                                  SelectLocation.map((location, index) => (
+                                    <option value={location?.Name} selected={selected_location==location?.Name ? "selected":""}>{location?.Name}</option>
+                                  ))
+                                }
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-6">
+                            <select className="nice-select area-options" onChange={onAreaChange}>
+                              <option>Choose Area</option>
+                              {area &&
+                                area.map((area, index) => (
+                                  <option value={area?.Name} selected={selected_area==area?.Name ? "selected":""}>{area?.Name}</option>
+                                ))
+                              }
+                            </select>
+                          </div>
+                          <div class="col-lg-3 col-6">
+                            <div className="text-center">
+                              <select className="nice-select" onChange={onPropertyTypeChange}>
+                                <option>Property Type</option>
+                                {SelectPropertyTYpe &&
+                                  SelectPropertyTYpe.map((ptype, index) => (
+                                    <option value={ptype?.Name} selected={selected_propertytype==ptype?.Name ? "selected":""}>{ptype?.Name}</option>
+                                  ))
+                                }
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-6">
+                            <div className="text-center">
+                              <select className="nice-select">
+                                <option>Builder</option>
+                              </select>
+                            </div>
+                          </div>
                         </div>
-                      </li>
-                      <li>
-                        <div className="short-by text-center">
-                          <select className="nice-select area-options" onChange={onAreaChange}>
-                            <option>Choose Area</option>
-                            {area &&
-                              area.map((area, index) => (
-                                <option value={area?.Name}>{area?.Name}</option>
-                              ))
-                            }
-                          </select>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="row">
+                          <div class="col-lg-5 col-6">
+                            <div className="text-center">
+                              <select className="nice-select">
+                                <option>Min.NR</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-lg-5 col-6">
+                            <div className="text-center">
+                              <select className="nice-select">
+                                <option>Max.NR</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-lg-2 col-12">
+                            <div className="showing-product-number">
+                              <a href="/property-results" className="btn theme-btn-1 text-uppercase btn-search">Search</a>
+                            </div>
+                          </div>
                         </div>
-                      </li>
-                      <li>
-                        <div className="short-by text-center">
-                          <select className="nice-select" onChange={onPropertyTypeChange}>
-                            <option>Property Type</option>
-                            {SelectPropertyTYpe &&
-                              SelectPropertyTYpe.map((ptype, index) => (
-                                <option value={ptype?.Name}>{ptype?.Name}</option>
-                              ))
-                            }
-                          </select>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="short-by text-center">
-                          <select className="nice-select">
-                            <option>Builder</option>                            
-                          </select>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="short-by text-center">
-                          <select className="nice-select">
-                            <option>Min.NR</option>                            
-                          </select>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="short-by text-center">
-                          <select className="nice-select">
-                            <option>Max.NR</option>                            
-                          </select>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="showing-product-number text-right">
-                          <a href="/property-results" className="btn theme-btn-1 btn-effect-1 text-uppercase btn-search">Search</a>
-                        </div>
-                      </li>
-                    </ul>
+                      </div>
+                    </div>
                   </div>
-                  <div className="ltn__shop-options">
-                    <ul>
-                      <li>
-                        <div className="short-by text-center">
-                          <h3 class="page-title">{title} ({results})</h3>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+                  <h3 class="page-title">{title} ({results})</h3>
                   <Item setShowing={setShowing} setResults={setResults} />
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div>        
       </Layout2>
     </>
   )

@@ -17,6 +17,7 @@ import Advantages from "../components/property-details/advantages"
 import Downloads from "../components/property-details/downloads"
 import Builder from "../components/property-details/builder"
 import $ from 'jquery';
+import "../components/property-details/property-details.scss"
 
 const PropertyDetailsTemplate = () => {
   const pageurl = typeof window !== "undefined" ? window.location.href : "";
@@ -76,7 +77,7 @@ const PropertyDetailsTemplate = () => {
                     <GooglMap />
 
                     <Builder builder={propertyDetail?.Builder} title={"Builder"} />
-                    <RelatedProperty />
+                    <RelatedProperty property_id={propertyDetail?.Property_Id}  location={propertyDetail?.Area?.data?.attributes?.Location?.data?.attributes?.Name} />
                   </div>
                 </div>
                 <div className="col-lg-4">
